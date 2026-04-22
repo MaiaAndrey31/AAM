@@ -1,0 +1,10 @@
+export { default as Navbar } from './Navbar.jsx';
+export { default as Hero } from './Hero.jsx';
+export { default as Sobre } from './Sobre.jsx';
+export { default as Portfolio } from './Portfolio.jsx';
+export { default as ComoFunciona } from './ComoFunciona.jsx';
+export { default as Depoimentos } from './Depoimentos.jsx';
+export { default as Encomendar } from './Encomendar.jsx';
+export { default as Contato } from './Contato.jsx';
+export { default as Footer } from './Footer.jsx';
+export { default as WhatsAppButton } from './WhatsAppButton.jsx';
