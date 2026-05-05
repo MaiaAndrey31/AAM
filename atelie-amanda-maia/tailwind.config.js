@@ -15,20 +15,17 @@ export default {
     },
     extend: {
       colors: {
-        'atelie': {
-          // Cores base - Posicionamento Emocional
-          'primary': '#E8B4B8',      // Rosé suave - cor principal
-          'secondary': '#F5E6DA',    // Bege claro - fundos
-          'accent': '#D98C9A',       // CTA botões - rosé mais intenso
-          'accent-hover': '#E8B4B8', // Hover dos botões
-          'gold': '#C8A96A',         // Detalhes premium
-          'gold-light': '#D4B97A',   // Dourado claro
-          'text': '#6B5E5E',         // Texto principal - cinza quente
-          'text-light': '#8B7E7E',   // Texto secundário
-          'detail': '#A67C52',       // Elementos artesanais
-          'white': '#FFFFFF',
-          'cream': '#FDF9F5',
-        }
+        'primary': '#E8B4B8',      // Rosé suave - cor principal
+        'secondary': '#F5E6DA',    // Bege claro - fundos
+        'accent': '#D98C9A',       // CTA botões - rosé mais intenso
+        'accent-hover': '#E8B4B8', // Hover dos botões
+        'gold': '#C8A96A',         // Detalhes premium
+        'gold-light': '#D4B97A',   // Dourado claro
+        'text': '#6B5E5E',         // Texto principal - cinza quente
+        'text-light': '#8B7E7E',   // Texto secundário
+        'detail': '#A67C52',       // Elementos artesanais
+        'white': '#FFFFFF',
+        'cream': '#FDF9F5',
       },
       fontFamily: {
         'serif': ['Playfair Display', 'Georgia', 'serif'],

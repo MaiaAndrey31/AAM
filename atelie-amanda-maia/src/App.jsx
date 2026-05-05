@@ -13,7 +13,7 @@ import {
 
 function App() {
   return (
-    <div className="min-h-screen bg-atelie-creme">
+    <div className="min-h-screen bg-secondary">
       <Navbar />
       <main>
         <Hero />

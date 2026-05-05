@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
-const WHATSAPP_NUMBER = '5514999999999'; // Substituir pelo número real
+const WHATSAPP_NUMBER = '5511975578672';
 const WHATSAPP_MESSAGE = 'Oi, vim pelo site e quero fazer uma encomenda 😊';
 
 export default function WhatsAppButton() {

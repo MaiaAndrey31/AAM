@@ -8,28 +8,28 @@ const steps = [
     icon: MessageSquare,
     title: 'Entre em Contato',
     description: 'Envie uma mensagem pelo WhatsApp ou formulário contando qual peça você deseja e para qual ocasião.',
-    color: 'bg-atelie-rose',
+    color: 'bg-primary',
   },
   {
     number: '02',
     icon: Image,
     title: 'Envie Referências',
     description: 'Compartilhe fotos de inspiração, cores preferidas, tema do evento e todas as características desejadas.',
-    color: 'bg-atelie-bege-dark',
+    color: 'bg-primary',
   },
   {
     number: '03',
     icon: Palette,
     title: 'Produção Artesanal',
-    description: 'Começo a modelar sua peça à mão, enviando atualizações do processo para aprovação.',
-    color: 'bg-atelie-dourado/20',
+    description: 'Começo a modelar sua peça à mão, de acordo com as características que você me enviou.',
+    color: 'bg-gold/20',
   },
   {
     number: '04',
     icon: Truck,
     title: 'Entrega',
-    description: 'Após aprovação final, sua peça é embalada com cuidado e enviada para todo o Brasil.',
-    color: 'bg-atelie-rose',
+    description: 'Após aprovação final, sua peça é embalada com cuidado e enviada para qualquer lugar do Brasil.',
+    color: 'bg-primary',
   },
 ];
 
@@ -38,7 +38,7 @@ export default function ComoFunciona() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="como-funciona" className="py-24 bg-atelie-creme" ref={ref}>
+    <section id="como-funciona" className="py-24 bg-cream" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -47,13 +47,13 @@ export default function ComoFunciona() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-atelie-dourado font-medium text-sm tracking-wider uppercase">
+          <span className="text-gold font-medium text-sm tracking-wider uppercase">
             Processo Simples
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl text-atelie-marrom mt-4 mb-6">
+          <h2 className="font-serif text-4xl sm:text-5xl text-text mt-4 mb-6">
             Como Funciona
           </h2>
-          <p className="text-atelie-marrom-light max-w-2xl mx-auto">
+          <p className="text-text-light max-w-2xl mx-auto">
             Fazer sua encomenda é fácil! Siga estes passos simples e receba uma peça única
             feita especialmente para você.
           </p>
@@ -71,22 +71,22 @@ export default function ComoFunciona() {
             >
               {/* Connector Line (not on last item) */}
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-12 left-[60%] w-[80%] h-0.5 bg-atelie-bege-dark/50" />
+                <div className="hidden lg:block absolute top-12 left-[60%] w-[80%] h-0.5 bg-primary/50" />
               )}
 
               <div className="bg-white rounded-2xl p-6 h-full hover:shadow-lg transition-shadow duration-300">
                 {/* Number Badge */}
                 <div className="flex items-center justify-between mb-6">
-                  <span className={`w-12 h-12 ${step.color} rounded-xl flex items-center justify-center font-serif text-xl text-atelie-marrom`}>
+                  <span className={`w-12 h-12 ${step.color} rounded-xl flex items-center justify-center font-serif text-xl text-text`}>
                     {step.number}
                   </span>
-                  <step.icon className="w-6 h-6 text-atelie-dourado" />
+                  <step.icon className="w-6 h-6 text-gold" />
                 </div>
 
-                <h3 className="font-serif text-xl text-atelie-marrom mb-3">
+                <h3 className="font-serif text-xl text-text mb-3">
                   {step.title}
                 </h3>
-                <p className="text-sm text-atelie-marrom-light leading-relaxed">
+                <p className="text-sm text-text-light leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -103,30 +103,30 @@ export default function ComoFunciona() {
         >
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="flex items-start gap-3 sm:gap-4">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-atelie-dourado/20 rounded-full flex items-center justify-center flex-shrink-0">
-                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-atelie-dourado" />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
               </div>
               <div className="min-w-0">
-                <h4 className="font-medium text-atelie-marrom text-sm sm:text-base mb-1">Orçamento Gratuito</h4>
-                <p className="text-xs sm:text-sm text-atelie-marrom-light leading-relaxed">Receba uma proposta personalizada sem compromisso</p>
+                <h4 className="font-medium text-text text-sm sm:text-base mb-1">Orçamento Gratuito</h4>
+                <p className="text-xs sm:text-sm text-text-light leading-relaxed">Receba uma proposta personalizada sem compromisso</p>
               </div>
             </div>
             <div className="flex items-start gap-3 sm:gap-4">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-atelie-dourado/20 rounded-full flex items-center justify-center flex-shrink-0">
-                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-atelie-dourado" />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
               </div>
               <div className="min-w-0">
-                <h4 className="font-medium text-atelie-marrom text-sm sm:text-base mb-1">Pagamento Facilitado</h4>
-                <p className="text-xs sm:text-sm text-atelie-marrom-light leading-relaxed">Parcelamento e opções de pagamento disponíveis</p>
+                <h4 className="font-medium text-text text-sm sm:text-base mb-1">Pagamento Facilitado</h4>
+                <p className="text-xs sm:text-sm text-text-light leading-relaxed">Parcelamento e opções de pagamento disponíveis</p>
               </div>
             </div>
             <div className="flex items-start gap-3 sm:gap-4 sm:col-span-2 lg:col-span-1">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-atelie-dourado/20 rounded-full flex items-center justify-center flex-shrink-0">
-                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-atelie-dourado" />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
               </div>
               <div className="min-w-0">
-                <h4 className="font-medium text-atelie-marrom text-sm sm:text-base mb-1">Acompanhamento Total</h4>
-                <p className="text-xs sm:text-sm text-atelie-marrom-light leading-relaxed">Fotos do processo e aprovação em cada etapa</p>
+                <h4 className="font-medium text-text text-sm sm:text-base mb-1">Envios para todo o Brasil</h4>
+                <p className="text-xs sm:text-sm text-text-light leading-relaxed">Todo nosso carinho e dedicação para todo o País</p>
               </div>
             </div>
           </div>
@@ -146,9 +146,9 @@ export default function ComoFunciona() {
               const element = document.querySelector('#encomendar');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-atelie-dourado hover:bg-atelie-dourado-light text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 shadow-lg shadow-atelie-dourado/30"
+            className="bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 shadow-lg shadow-accent/30"
           >
-            Quero Fazer uma Encomenda
+            Criar minha lembrança
           </motion.button>
         </motion.div>
       </div>

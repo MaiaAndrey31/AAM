@@ -52,8 +52,8 @@ export default function Navbar() {
               className="flex items-center gap-2 group"
               whileHover={{ scale: 1.02 }}
             >
-              <Heart className="w-6 h-6 text-atelie-dourado fill-atelie-rose" />
-              <span className="font-serif text-xl font-semibold text-atelie-marrom">
+              <Heart className="w-6 h-6 text-gold fill-primary" />
+              <span className="font-serif text-xl font-semibold text-text">
                 Ateliê Amanda Maia
               </span>
             </motion.a>
@@ -65,7 +65,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
-                  className="text-atelie-marrom-light hover:text-atelie-dourado transition-colors duration-300 text-sm font-medium"
+                  className="text-text-light hover:text-gold transition-colors duration-300 text-sm font-medium"
                 >
                   {item.label}
                 </a>
@@ -74,16 +74,16 @@ export default function Navbar() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection('#encomendar')}
-                className="bg-atelie-dourado hover:bg-atelie-dourado-light text-white px-5 py-2.5 rounded-full text-sm font-medium transition-colors duration-300"
+                className="bg-accent hover:bg-accent-hover text-white px-5 py-2.5 rounded-full text-sm font-medium transition-colors duration-300"
               >
-                Fazer Encomenda
+                Fazer minha encomenda
               </motion.button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-atelie-marrom"
+              className="md:hidden p-2 text-text"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -102,7 +102,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 md:hidden"
           >
             <div 
-              className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+              className="absolute inset-0 bg-text/20 backdrop-blur-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
@@ -116,7 +116,7 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     onClick={(e) => { e.preventDefault(); scrollToSection(item.href); }}
-                    className="text-atelie-marrom hover:text-atelie-dourado transition-colors py-2 text-lg font-medium border-b border-atelie-bege last:border-0"
+                    className="text-text hover:text-gold transition-colors py-2 text-lg font-medium border-b border-secondary last:border-0"
                   >
                     {item.label}
                   </a>
@@ -124,9 +124,9 @@ export default function Navbar() {
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection('#encomendar')}
-                  className="bg-atelie-dourado hover:bg-atelie-dourado-light text-white px-5 py-3 rounded-full font-medium mt-2"
+                  className="bg-accent hover:bg-accent-hover text-white px-5 py-3 rounded-full font-medium mt-2"
                 >
-                  Fazer Encomenda
+                  Fazer minha encomenda
                 </motion.button>
               </div>
             </motion.div>

@@ -12,9 +12,9 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'WhatsApp',
-    content: '(14) 99999-9999',
+    content: '(11) 97557-8672',
     subtext: 'Resposta em até 2h',
-    href: 'https://wa.me/5514999999999',
+    href: 'https://wa.me/5511975578672',
   },
   {
     icon: Instagram,
@@ -37,7 +37,7 @@ export default function Contato() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contato" className="py-24 bg-atelie-creme" ref={ref}>
+    <section id="contato" className="py-24 bg-cream" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -46,13 +46,13 @@ export default function Contato() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-atelie-dourado font-medium text-sm tracking-wider uppercase">
+          <span className="text-gold font-medium text-sm tracking-wider uppercase">
             Fale Conosco
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl text-atelie-marrom mt-4 mb-6">
+          <h2 className="font-serif text-4xl sm:text-5xl text-text mt-4 mb-6">
             Entre em Contato
           </h2>
-          <p className="text-atelie-marrom-light max-w-2xl mx-auto">
+          <p className="text-text-light max-w-2xl mx-auto">
             Estamos aqui para transformar suas ideias em realidade. Entre em contato
             e vamos criar algo especial juntos.
           </p>
@@ -74,21 +74,21 @@ export default function Contato() {
                   rel="noopener noreferrer"
                   className="block bg-white rounded-2xl p-4 sm:p-6 h-full hover:shadow-lg transition-shadow group"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-atelie-dourado/20 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-atelie-dourado/30 transition-colors flex-shrink-0">
-                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-atelie-dourado" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-gold/30 transition-colors flex-shrink-0">
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
                   </div>
-                  <h3 className="font-medium text-atelie-marrom mb-1 text-sm sm:text-base">{item.title}</h3>
-                  <p className="text-atelie-marrom font-medium text-sm sm:text-base break-all sm:break-normal">{item.content}</p>
-                  <p className="text-xs sm:text-sm text-atelie-marrom-light mt-1">{item.subtext}</p>
+                  <h3 className="font-medium text-text mb-1 text-sm sm:text-base">{item.title}</h3>
+                  <p className="text-text font-medium text-sm sm:text-base break-all sm:break-normal">{item.content}</p>
+                  <p className="text-xs sm:text-sm text-text-light mt-1">{item.subtext}</p>
                 </a>
               ) : (
                 <div className="bg-white rounded-2xl p-4 sm:p-6 h-full">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-atelie-dourado/20 rounded-xl flex items-center justify-center mb-3 sm:mb-4 flex-shrink-0">
-                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-atelie-dourado" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-3 sm:mb-4 flex-shrink-0">
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
                   </div>
-                  <h3 className="font-medium text-atelie-marrom mb-1 text-sm sm:text-base">{item.title}</h3>
-                  <p className="text-atelie-marrom font-medium text-sm sm:text-base">{item.content}</p>
-                  <p className="text-xs sm:text-sm text-atelie-marrom-light mt-1">{item.subtext}</p>
+                  <h3 className="font-medium text-text mb-1 text-sm sm:text-base">{item.title}</h3>
+                  <p className="text-text font-medium text-sm sm:text-base">{item.content}</p>
+                  <p className="text-xs sm:text-sm text-text-light mt-1">{item.subtext}</p>
                 </div>
               )}
             </motion.div>
@@ -105,38 +105,38 @@ export default function Contato() {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
             <div>
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-atelie-dourado flex-shrink-0" />
-                <h3 className="font-serif text-xl sm:text-2xl text-atelie-marrom">Horário de Atendimento</h3>
+                <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-gold flex-shrink-0" />
+                <h3 className="font-serif text-xl sm:text-2xl text-text">Horário de Atendimento</h3>
               </div>
-              <p className="text-atelie-marrom-light text-sm sm:text-base mb-4 sm:mb-6">
+              <p className="text-text-light text-sm sm:text-base mb-4 sm:mb-6">
                 Estamos disponíveis para atender você nos seguintes horários.
                 Respostas fora do horário comercial serão respondidas no próximo dia útil.
               </p>
               <div className="space-y-2 sm:space-y-3">
-                <div className="flex justify-between items-center py-2 border-b border-atelie-bege">
-                  <span className="text-atelie-marrom text-sm sm:text-base">Segunda a Sexta</span>
-                  <span className="font-medium text-atelie-marrom text-sm sm:text-base">9h às 18h</span>
+                <div className="flex justify-between items-center py-2 border-b border-secondary">
+                  <span className="text-text text-sm sm:text-base">Segunda a Sexta</span>
+                  <span className="font-medium text-text text-sm sm:text-base">9h às 18h</span>
                 </div>
-                <div className="flex justify-between items-center py-2 border-b border-atelie-bege">
-                  <span className="text-atelie-marrom text-sm sm:text-base">Sábado</span>
-                  <span className="font-medium text-atelie-marrom text-sm sm:text-base">9h às 14h</span>
+                <div className="flex justify-between items-center py-2 border-b border-secondary">
+                  <span className="text-text text-sm sm:text-base">Sábado</span>
+                  <span className="font-medium text-text text-sm sm:text-base">9h às 14h</span>
                 </div>
                 <div className="flex justify-between items-center py-2">
-                  <span className="text-atelie-marrom text-sm sm:text-base">Domingo</span>
-                  <span className="font-medium text-atelie-rose-dark text-sm sm:text-base">Fechado</span>
+                  <span className="text-text text-sm sm:text-base">Domingo</span>
+                  <span className="font-medium text-accent text-sm sm:text-base">Fechado</span>
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-atelie-rose/30 to-atelie-bege rounded-2xl p-6 sm:p-8 text-center">
-              <Heart className="w-10 h-10 sm:w-12 sm:h-12 text-atelie-dourado mx-auto mb-3 sm:mb-4" />
-              <h4 className="font-serif text-lg sm:text-xl text-atelie-marrom mb-2">
+            <div className="bg-gradient-to-br from-primary/30 to-secondary rounded-2xl p-6 sm:p-8 text-center">
+              <Heart className="w-10 h-10 sm:w-12 sm:h-12 text-gold mx-auto mb-3 sm:mb-4" />
+              <h4 className="font-serif text-lg sm:text-xl text-text mb-2">
                 Atendimento Online
               </h4>
-              <p className="text-atelie-marrom-light text-xs sm:text-sm mb-3 sm:mb-4">
+              <p className="text-text-light text-xs sm:text-sm mb-3 sm:mb-4">
                 Enviamos para todo o Brasil com seguro e rastreamento.
               </p>
-              <p className="text-atelie-marrom font-medium text-sm sm:text-base">
-                Prazo de entrega: 3 a 10 dias úteis
+              <p className="text-text font-medium text-sm sm:text-base">
+                Prazo de entrega mínimo: 5 a 10 dias úteis ou de acordo com a data do seu evento
               </p>
             </div>
           </div>

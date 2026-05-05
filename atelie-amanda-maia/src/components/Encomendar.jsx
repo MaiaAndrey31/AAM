@@ -2,6 +2,8 @@ import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Send, Calendar, User, Phone, FileText, Gift, CheckCircle } from 'lucide-react';
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mzdogdrj';
+
 const productTypes = [
   { value: '', label: 'Selecione o tipo de produto' },
   { value: 'topo-bolo', label: 'Topo de Bolo' },
@@ -24,28 +26,50 @@ export default function Encomendar() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
-    const message = `*Nova Encomenda - Ateliê Amanda Maia*
+    const formPayload = {
+      nome: formData.nome,
+      whatsapp: formData.whatsapp,
+      tipo: productTypes.find(p => p.value === formData.tipo)?.label || formData.tipo,
+      data: formData.data || 'Não informada',
+      observacoes: formData.observacoes || 'Nenhuma',
+      _subject: 'Nova Encomenda - Ateliê Amanda Maia',
+      _replyto: formData.whatsapp,
+    };
 
-*Nome:* ${formData.nome}
-*WhatsApp:* ${formData.whatsapp}
-*Tipo de Produto:* ${productTypes.find(p => p.value === formData.tipo)?.label || formData.tipo}
-*Data do Evento:* ${formData.data || 'Não informada'}
-*Observações:* ${formData.observacoes || 'Nenhuma'}
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formPayload),
+      });
 
-_Oi, vim pelo site e quero fazer uma encomenda 😊_`;
-
-    const encodedMessage = encodeURIComponent(message);
-    window.open(
-      `https://wa.me/5514999999999?text=${encodedMessage}`,
-      '_blank',
-      'noopener,noreferrer'
-    );
-
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          nome: '',
+          whatsapp: '',
+          tipo: '',
+          data: '',
+          observacoes: '',
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(null), 5000);
+    }
   };
 
   const handleChange = (e) => {
@@ -53,7 +77,7 @@ _Oi, vim pelo site e quero fazer uma encomenda 😊_`;
   };
 
   return (
-    <section id="encomendar" className="py-24 bg-atelie-bege" ref={ref}>
+    <section id="encomendar" className="py-24 bg-secondary" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Side - Info */}
@@ -62,43 +86,43 @@ _Oi, vim pelo site e quero fazer uma encomenda 😊_`;
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-atelie-dourado font-medium text-sm tracking-wider uppercase">
+            <span className="text-gold font-medium text-sm tracking-wider uppercase">
               Vamos Criar Juntos
             </span>
-            <h2 className="font-serif text-4xl sm:text-5xl text-atelie-marrom mt-4 mb-6">
+            <h2 className="font-serif text-4xl sm:text-5xl text-text mt-4 mb-6">
               Faça sua Encomenda
             </h2>
-            <p className="text-atelie-marrom-light text-lg leading-relaxed mb-8">
+            <p className="text-text-light text-lg leading-relaxed mb-8">
               Preencha o formulário ao lado e envie sua solicitação diretamente pelo WhatsApp.
               Respondemos em poucas horas com seu orçamento personalizado!
             </p>
 
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-atelie-dourado/20 rounded-full flex items-center justify-center">
-                  <CheckCircle className="w-6 h-6 text-atelie-dourado" />
+                <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-6 h-6 text-gold" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-atelie-marrom">Orçamento Gratuito</h4>
-                  <p className="text-sm text-atelie-marrom-light">Sem compromisso</p>
+                  <h4 className="font-medium text-text">Orçamento Gratuito</h4>
+                  <p className="text-sm text-text-light">Sem compromisso</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-atelie-dourado/20 rounded-full flex items-center justify-center">
-                  <Calendar className="w-6 h-6 text-atelie-dourado" />
+                <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center">
+                  <Calendar className="w-6 h-6 text-gold" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-atelie-marrom">Prazo de Produção</h4>
-                  <p className="text-sm text-atelie-marrom-light">De 15 a 30 dias úteis</p>
+                  <h4 className="font-medium text-text">Prazo de Produção</h4>
+                  <p className="text-sm text-text-light">De 15 a 30 dias úteis</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-atelie-dourado/20 rounded-full flex items-center justify-center">
-                  <Gift className="w-6 h-6 text-atelie-dourado" />
+                <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center">
+                  <Gift className="w-6 h-6 text-gold" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-atelie-marrom">Embalagem Especial</h4>
-                  <p className="text-sm text-atelie-marrom-light">Presente incluído</p>
+                  <h4 className="font-medium text-text">Embalagem Especial</h4>
+                  <p className="text-sm text-text-light">Presente incluído</p>
                 </div>
               </div>
             </div>
@@ -110,15 +134,15 @@ _Oi, vim pelo site e quero fazer uma encomenda 😊_`;
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl">
-              <h3 className="font-serif text-xl sm:text-2xl text-atelie-marrom mb-4 sm:mb-6 text-center">
+            <form onSubmit={handleSubmit} action={FORMSPREE_ENDPOINT} method="POST" className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl">
+              <h3 className="font-serif text-xl sm:text-2xl text-text mb-4 sm:mb-6 text-center">
                 Solicitar Orçamento
               </h3>
 
               {/* Name */}
               <div className="mb-4 sm:mb-5">
-                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-atelie-marrom mb-2">
-                  <User className="w-4 h-4 text-atelie-dourado flex-shrink-0" />
+                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-text mb-2">
+                  <User className="w-4 h-4 text-gold flex-shrink-0" />
                   <span className="truncate">Nome Completo</span>
                 </label>
                 <input
@@ -127,15 +151,15 @@ _Oi, vim pelo site e quero fazer uma encomenda 😊_`;
                   value={formData.nome}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-atelie-bege-dark focus:border-atelie-dourado focus:ring-2 focus:ring-atelie-dourado/20 outline-none transition-all bg-atelie-creme text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base"
                   placeholder="Seu nome"
                 />
               </div>
 
               {/* WhatsApp */}
               <div className="mb-4 sm:mb-5">
-                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-atelie-marrom mb-2">
-                  <Phone className="w-4 h-4 text-atelie-dourado flex-shrink-0" />
+                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-text mb-2">
+                  <Phone className="w-4 h-4 text-gold flex-shrink-0" />
                   WhatsApp
                 </label>
                 <input
@@ -144,15 +168,15 @@ _Oi, vim pelo site e quero fazer uma encomenda 😊_`;
                   value={formData.whatsapp}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-atelie-bege-dark focus:border-atelie-dourado focus:ring-2 focus:ring-atelie-dourado/20 outline-none transition-all bg-atelie-creme text-sm sm:text-base"
-                  placeholder="(14) 99999-9999"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base"
+                  placeholder="(11) 97557-8672"
                 />
               </div>
 
               {/* Product Type */}
               <div className="mb-4 sm:mb-5">
-                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-atelie-marrom mb-2">
-                  <Gift className="w-4 h-4 text-atelie-dourado flex-shrink-0" />
+                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-text mb-2">
+                  <Gift className="w-4 h-4 text-gold flex-shrink-0" />
                   Tipo de Produto
                 </label>
                 <select
@@ -160,7 +184,7 @@ _Oi, vim pelo site e quero fazer uma encomenda 😊_`;
                   value={formData.tipo}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-atelie-bege-dark focus:border-atelie-dourado focus:ring-2 focus:ring-atelie-dourado/20 outline-none transition-all bg-atelie-creme text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base"
                 >
                   {productTypes.map((type) => (
                     <option key={type.value} value={type.value}>
@@ -172,8 +196,8 @@ _Oi, vim pelo site e quero fazer uma encomenda 😊_`;
 
               {/* Event Date */}
               <div className="mb-4 sm:mb-5">
-                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-atelie-marrom mb-2">
-                  <Calendar className="w-4 h-4 text-atelie-dourado flex-shrink-0" />
+                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-text mb-2">
+                  <Calendar className="w-4 h-4 text-gold flex-shrink-0" />
                   Data do Evento
                 </label>
                 <input
@@ -181,14 +205,14 @@ _Oi, vim pelo site e quero fazer uma encomenda 😊_`;
                   name="data"
                   value={formData.data}
                   onChange={handleChange}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-atelie-bege-dark focus:border-atelie-dourado focus:ring-2 focus:ring-atelie-dourado/20 outline-none transition-all bg-atelie-creme text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base"
                 />
               </div>
 
               {/* Observations */}
               <div className="mb-5 sm:mb-6">
-                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-atelie-marrom mb-2">
-                  <FileText className="w-4 h-4 text-atelie-dourado flex-shrink-0" />
+                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-text mb-2">
+                  <FileText className="w-4 h-4 text-gold flex-shrink-0" />
                   Observações / Detalhes
                 </label>
                 <textarea
@@ -196,7 +220,7 @@ _Oi, vim pelo site e quero fazer uma encomenda 😊_`;
                   value={formData.observacoes}
                   onChange={handleChange}
                   rows="3"
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-atelie-bege-dark focus:border-atelie-dourado focus:ring-2 focus:ring-atelie-dourado/20 outline-none transition-all bg-atelie-creme resize-none text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream resize-none text-sm sm:text-base"
                   placeholder="Descreva o tema, cores, personagens..."
                 />
               </div>
@@ -204,26 +228,44 @@ _Oi, vim pelo site e quero fazer uma encomenda 😊_`;
               {/* Submit Button */}
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-atelie-dourado hover:bg-atelie-dourado-light text-white py-3 sm:py-4 rounded-xl font-medium text-base sm:text-lg transition-all duration-300 shadow-lg shadow-atelie-dourado/30 flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                className="w-full bg-accent hover:bg-accent-hover disabled:bg-accent/50 text-white py-3 sm:py-4 rounded-xl font-medium text-base sm:text-lg transition-all duration-300 shadow-lg shadow-accent/30 flex items-center justify-center gap-2"
               >
-                {isSubmitted ? (
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Enviando...
+                  </>
+                ) : submitStatus === 'success' ? (
                   <>
                     <CheckCircle className="w-5 h-5" />
-                    Enviado!
+                    Enviado com sucesso!
                   </>
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    <span className="truncate">Enviar pelo WhatsApp</span>
+                    <span className="truncate">Fazer minha encomenda</span>
                   </>
                 )}
               </motion.button>
 
-              <p className="text-center text-xs text-atelie-marrom-light mt-3 sm:mt-4">
-                Ao enviar, você será redirecionado para o WhatsApp
-              </p>
+              {submitStatus === 'success' && (
+                <p className="text-center text-xs text-green-600 mt-3 sm:mt-4">
+                  Obrigada! Sua encomenda foi enviada. Entraremos em contato em breve.
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="text-center text-xs text-red-500 mt-3 sm:mt-4">
+                  Erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.
+                </p>
+              )}
+              {!submitStatus && (
+                <p className="text-center text-xs text-text-light mt-3 sm:mt-4">
+                  Sua encomenda será enviada diretamente para nosso email
+                </p>
+              )}
             </form>
           </motion.div>
         </div>
