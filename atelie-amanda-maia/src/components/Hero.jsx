@@ -11,24 +11,30 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-secondary/50 via-cream to-cream">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-cream via-white to-primary/10">
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-10 w-32 h-32 bg-primary/30 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-primary/50 to-accent/30 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-40 right-10 w-48 h-48 bg-gold/20 rounded-full blur-3xl"
+          className="absolute bottom-40 right-10 w-56 h-56 bg-gradient-to-br from-gold/40 to-primary/20 rounded-full blur-3xl"
         />
         <motion.div
           animate={{ y: [0, -15, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 right-1/4 w-24 h-24 bg-secondary/50 rounded-full blur-2xl"
+          className="absolute top-1/3 right-1/4 w-32 h-32 bg-gradient-to-br from-secondary/70 to-cream/50 rounded-full blur-2xl"
         />
+        <motion.div
+          animate={{ y: [0, 10, 0], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-20 left-1/4 w-72 h-72 bg-gradient-to-tr from-accent/20 to-gold/10 rounded-full blur-3xl"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cream/80" />
       </div>
 
       {/* Two-column layout */}
@@ -36,27 +42,35 @@ export default function Hero() {
 
         {/* LEFT — Text Content */}
         <div className="flex-[0.9] flex flex-col items-start text-left">
-          {/* Badge */}
+          {/* Badge Luxo */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-gold/20"
+            className="inline-flex items-center gap-2 glass-premium px-5 py-2.5 rounded-full mb-6"
           >
-            <Sparkles className="w-4 h-4 text-gold" />
-            <span className="text-sm font-medium text-text">
+            <Sparkles className="w-4 h-4 text-gold-dark" />
+            <span className="text-xs font-medium text-gold-dark tracking-wider uppercase">
               Biscuit Artesanal Personalizado
             </span>
           </motion.div>
 
-          {/* Logo / Signature */}
+          {/* Linha decorativa de luxo */}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="line-luxury w-24 mb-6"
+          />
+
+          {/* Logo / Signature Luxo */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.05 }}
             className="mb-4"
           >
-            <p className="font-serif text-accent text-2xl italic tracking-wide">AM ♡ Amanda Maia</p>
+            <p className="font-serif text-gradient-luxury text-2xl italic tracking-widest">AM ♡ Amanda Maia</p>
           </motion.div>
 
           {/* Main Headline */}
@@ -64,12 +78,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-text leading-tight mb-5"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-text leading-tight mb-5"
           >
             <span className="block">Transformando</span>
-            <span className="text-gradient block">momentos</span>
+            <span className="text-gradient block drop-shadow-soft">momentos</span>
             <span className="block">em lembranças</span>
-            <span className="block">eternas</span>
+            <span className="text-gradient-gold block drop-shadow-soft">eternas</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -91,7 +105,7 @@ export default function Hero() {
             Cada peça conta uma história. Topo de bolo, noivinhos e lembrancinhas que eternizam seus momentos mais especiais.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons Luxo */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -99,42 +113,51 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
             <motion.button
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => scrollToSection('#encomendar')}
-              className="bg-accent hover:bg-accent-hover text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 shadow-lg"
-              style={{ boxShadow: '0 10px 30px rgba(217, 140, 154, 0.35)' }}
+              className="bg-gradient-to-r from-accent to-accent-hover text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 shadow-accent hover:shadow-accent-hover tracking-wide"
             >
               ✨ Quero minha peça personalizada
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => scrollToSection('#portfolio')}
-              className="bg-white hover:bg-secondary text-text px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 border border-gold/30"
+              className="bg-gradient-to-r from-white to-champagne text-text px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 border border-gold/30 shadow-soft hover:shadow-gold-lux"
             >
               Ver histórias criadas
             </motion.button>
           </motion.div>
 
-          {/* Stats */}
+          {/* Linha decorativa inferior */}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="line-luxury w-full mt-10"
+          />
+
+          {/* Stats Luxo */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="flex gap-8 mt-10 pt-6 border-t border-gold/20 w-full"
+            className="flex gap-8 mt-8 w-full"
           >
-            <div className="text-center">
-              <div className="font-serif text-2xl sm:text-3xl text-accent font-semibold">1000+</div>
-              <div className="text-xs sm:text-sm text-text-light mt-1 leading-tight">Lembranças Criadas</div>
+            <div className="text-center px-4 py-2">
+              <div className="font-serif text-2xl sm:text-3xl text-gradient-luxury font-bold">1000+</div>
+              <div className="text-xs sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Lembranças Criadas</div>
             </div>
-            <div className="text-center">
-              <div className="font-serif text-2xl sm:text-3xl text-accent font-semibold">12+</div>
-              <div className="text-xs sm:text-sm text-text-light mt-1 leading-tight">Anos de Amor</div>
+            <div className="w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
+            <div className="text-center px-4 py-2">
+              <div className="font-serif text-2xl sm:text-3xl text-gradient-luxury font-bold">12+</div>
+              <div className="text-xs sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Anos de Amor</div>
             </div>
-            <div className="text-center">
-              <div className="font-serif text-2xl sm:text-3xl text-accent font-semibold">100%</div>
-              <div className="text-xs sm:text-sm text-text-light mt-1 leading-tight">Exclusivo</div>
+            <div className="w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
+            <div className="text-center px-4 py-2">
+              <div className="font-serif text-2xl sm:text-3xl text-gradient-luxury font-bold">100%</div>
+              <div className="text-xs sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Exclusivo</div>
             </div>
           </motion.div>
         </div>
@@ -151,8 +174,8 @@ export default function Hero() {
             alt="Amanda Maia com biscuit artesanal personalizado"
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-full object-contain drop-shadow-2xl"
-            style={{ minWidth: '800px', minHeight: '800px' }}
+            className="w-full object-contain drop-shadow-strong"
+            style={{ minWidth: '800px', minHeight: '800px', filter: 'drop-shadow(0 25px 60px rgba(74, 63, 63, 0.35))' }}
           />
         </motion.div>
       </div>

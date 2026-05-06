@@ -37,11 +37,10 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-white/90 backdrop-blur-md shadow-lg' 
-            : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'bg-gradient-to-b from-white/95 to-white/90 backdrop-blur-lg shadow-nav'
+          : 'bg-transparent'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
@@ -52,8 +51,8 @@ export default function Navbar() {
               className="flex items-center gap-2 group"
               whileHover={{ scale: 1.02 }}
             >
-              <Heart className="w-6 h-6 text-gold fill-primary" />
-              <span className="font-serif text-xl font-semibold text-text">
+              <Heart className="w-6 h-6 text-gold fill-primary group-hover:scale-110 transition-transform" />
+              <span className="font-serif text-xl font-semibold text-text tracking-wide group-hover:text-gold-dark transition-colors">
                 Ateliê Amanda Maia
               </span>
             </motion.a>
@@ -71,10 +70,10 @@ export default function Navbar() {
                 </a>
               ))}
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection('#encomendar')}
-                className="bg-accent hover:bg-accent-hover text-white px-5 py-2.5 rounded-full text-sm font-medium transition-colors duration-300"
+                className="bg-gradient-to-r from-accent to-accent-hover text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-accent hover:shadow-accent-hover tracking-wide"
               >
                 Fazer minha encomenda
               </motion.button>
@@ -101,12 +100,12 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 md:hidden"
           >
-            <div 
+            <div
               className="absolute inset-0 bg-text/20 backdrop-blur-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
-              className="absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-xl p-6"
+              className="absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-strong p-6"
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
             >
@@ -124,7 +123,7 @@ export default function Navbar() {
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection('#encomendar')}
-                  className="bg-accent hover:bg-accent-hover text-white px-5 py-3 rounded-full font-medium mt-2"
+                  className="bg-gradient-to-r from-accent to-accent-hover text-white px-5 py-3 rounded-full font-semibold mt-2 shadow-accent tracking-wide"
                 >
                   Fazer minha encomenda
                 </motion.button>

@@ -77,7 +77,7 @@ export default function Encomendar() {
   };
 
   return (
-    <section id="encomendar" className="py-24 bg-secondary" ref={ref}>
+    <section id="encomendar" className="py-24 bg-gradient-to-b from-secondary via-cream to-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Side - Info */}
@@ -86,12 +86,11 @@ export default function Encomendar() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-gold font-medium text-sm tracking-wider uppercase">
-              Vamos Criar Juntos
-            </span>
-            <h2 className="font-serif text-4xl sm:text-5xl text-text mt-4 mb-6">
+            <div className="badge-luxury mb-4 inline-block">Vamos Criar Juntos</div>
+            <h2 className="font-serif text-4xl sm:text-5xl text-gradient-luxury mt-4 mb-6">
               Faça sua Encomenda
             </h2>
+            <div className="line-luxury w-24 mb-6" />
             <p className="text-text-light text-lg leading-relaxed mb-8">
               Preencha o formulário ao lado e envie sua solicitação diretamente pelo WhatsApp.
               Respondemos em poucas horas com seu orçamento personalizado!
@@ -99,7 +98,7 @@ export default function Encomendar() {
 
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-gold/40 to-gold/20 rounded-full flex items-center justify-center shadow-soft">
                   <CheckCircle className="w-6 h-6 text-gold" />
                 </div>
                 <div>
@@ -108,7 +107,7 @@ export default function Encomendar() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-gold/40 to-gold/20 rounded-full flex items-center justify-center shadow-soft">
                   <Calendar className="w-6 h-6 text-gold" />
                 </div>
                 <div>
@@ -117,7 +116,7 @@ export default function Encomendar() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-gold/40 to-gold/20 rounded-full flex items-center justify-center shadow-soft">
                   <Gift className="w-6 h-6 text-gold" />
                 </div>
                 <div>
@@ -134,8 +133,8 @@ export default function Encomendar() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} action={FORMSPREE_ENDPOINT} method="POST" className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl">
-              <h3 className="font-serif text-xl sm:text-2xl text-text mb-4 sm:mb-6 text-center">
+            <form onSubmit={handleSubmit} action={FORMSPREE_ENDPOINT} method="POST" className="card-luxury rounded-2xl sm:rounded-3xl p-5 sm:p-8">
+              <h3 className="font-serif text-xl sm:text-2xl text-gradient-luxury mb-4 sm:mb-6 text-center">
                 Solicitar Orçamento
               </h3>
 
@@ -151,7 +150,7 @@ export default function Encomendar() {
                   value={formData.nome}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base shadow-inner-light"
                   placeholder="Seu nome"
                 />
               </div>
@@ -168,7 +167,7 @@ export default function Encomendar() {
                   value={formData.whatsapp}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base shadow-inner-light"
                   placeholder="(11) 97557-8672"
                 />
               </div>
@@ -184,7 +183,7 @@ export default function Encomendar() {
                   value={formData.tipo}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base shadow-inner-light"
                 >
                   {productTypes.map((type) => (
                     <option key={type.value} value={type.value}>
@@ -205,7 +204,7 @@ export default function Encomendar() {
                   name="data"
                   value={formData.data}
                   onChange={handleChange}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base shadow-inner-light"
                 />
               </div>
 
@@ -220,7 +219,7 @@ export default function Encomendar() {
                   value={formData.observacoes}
                   onChange={handleChange}
                   rows="3"
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream resize-none text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream resize-none text-sm sm:text-base shadow-inner-light"
                   placeholder="Descreva o tema, cores, personagens..."
                 />
               </div>
@@ -229,9 +228,9 @@ export default function Encomendar() {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02, y: isSubmitting ? 0 : -2 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                className="w-full bg-accent hover:bg-accent-hover disabled:bg-accent/50 text-white py-3 sm:py-4 rounded-xl font-medium text-base sm:text-lg transition-all duration-300 shadow-lg shadow-accent/30 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-accent to-accent-hover disabled:from-accent/50 disabled:to-accent-hover/50 text-white py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 shadow-accent hover:shadow-accent-hover flex items-center justify-center gap-2 tracking-wide"
               >
                 {isSubmitting ? (
                   <>
@@ -270,6 +269,6 @@ export default function Encomendar() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }

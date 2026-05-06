@@ -5,47 +5,65 @@
 @tailwind utilities;
 
 :root {
-  /* Nova Paleta - Posicionamento Emocional */
-  --primary: #E8B4B8;      /* Rosé suave */
-  --secondary: #F5E6DA;    /* Bege claro */
-  --accent: #D98C9A;       /* CTA botões */
-  --accent-hover: #E8B4B8; /* Hover */
-  --gold: #C8A96A;         /* Detalhes premium */
-  --gold-light: #D4B97A;   /* Dourado claro */
-  --text: #6B5E5E;         /* Texto principal */
-  --text-light: #8B7E7E;   /* Texto secundário */
-  --detail: #A67C52;       /* Elementos artesanais */
-  --white: #FFFFFF;
-  --cream: #FDF9F5;
-  
-  /* Cores legadas para compatibilidade */
+  /* Paleta Moderna com Alto Contraste */
+  --primary: #E8B4B8;
+  /* Rosé suave */
   --secondary: #F5E6DA;
-  --primary: #E8D5C4;
-  --primary: #F5E6DA;
-  --accent: #E8B4B8;
-  --gold: #C8A96A;
+  /* Bege claro */
+  --accent: #C85A6E;
+  /* CTA botões - mais vibrante */
+  --accent-hover: #B84A5E;
+  /* Hover - tom mais escuro */
+  --gold: #B8964A;
+  /* Detalhes premium - mais saturado */
   --gold-light: #D4B97A;
-  --text: #6B5E5E;
-  --text-light: #8B7E7E;
+  /* Dourado claro */
+  --text: #4A3F3F;
+  /* Texto principal - mais escuro para contraste */
+  --text-light: #6B5E5E;
+  /* Texto secundário */
+  --detail: #8B6B42;
+  /* Elementos artesanais */
+  --dark: #2D2424;
+  /* Cor escura para alto contraste */
   --white: #FFFFFF;
   --cream: #FDF9F5;
+
+  /* Sombras Modernas */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-strong: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.18);
+  --shadow-2xl: 0 25px 80px rgba(0, 0, 0, 0.22);
+  --shadow-accent: 0 10px 40px rgba(200, 90, 110, 0.35);
+  --shadow-accent-hover: 0 15px 50px rgba(200, 90, 110, 0.45);
+  --shadow-gold: 0 8px 30px rgba(184, 150, 74, 0.3);
+  --shadow-card: 0 4px 20px rgba(74, 63, 63, 0.08), 0 1px 3px rgba(74, 63, 63, 0.05);
+  --shadow-card-hover: 0 12px 40px rgba(74, 63, 63, 0.15), 0 4px 12px rgba(74, 63, 63, 0.1);
+  --shadow-float: 0 20px 50px rgba(74, 63, 63, 0.2);
+  --shadow-nav: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 @layer base {
   * {
     @apply m-0 p-0 box-border;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply font-sans bg-cream text-text leading-relaxed overflow-x-hidden;
     font-family: 'Inter', system-ui, sans-serif;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Playfair Display', Georgia, serif;
     @apply text-text;
   }
@@ -54,42 +72,186 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #D98C9A 0%, #E8B4B8 100%);
+    background-image: linear-gradient(135deg, #C85A6E 0%, #E8B4B8 50%, #B8964A 100%);
   }
-  
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #B8964A 0%, #D4B97A 50%, #C85A6E 100%);
+  }
+
   .bg-gradient {
-    background: linear-gradient(135deg, #FDF9F5 0%, #F5E6DA 100%);
+    background: linear-gradient(135deg, #FDF9F5 0%, #F5E6DA 50%, #E8B4B8 100%);
   }
-  
-  /* CTA Buttons - Estilo emocional */
+
+  .bg-gradient-soft {
+    background: linear-gradient(180deg, #FDF9F5 0%, #FFFFFF 50%, #F5E6DA 100%);
+  }
+
+  .bg-gradient-warm {
+    background: linear-gradient(135deg, #F5E6DA 0%, #E8B4B8 50%, #FDF9F5 100%);
+  }
+
+  /* Gradiente de luxo - champanhe e dourado */
+  .bg-gradient-luxury {
+    background: linear-gradient(135deg, #F7E7CE 0%, #FDF9F5 30%, #F5E6DA 70%, #E8B4B8 100%);
+  }
+
+  /* Gradiente metálico rose gold */
+  .bg-gradient-rose-gold {
+    background: linear-gradient(135deg, #E6B8A5 0%, #F7E7CE 50%, #E6B8A5 100%);
+  }
+
+  /* Texto com gradiente de luxo */
+  .text-gradient-luxury {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #9A7B3D 0%, #B8964A 30%, #D4B97A 60%, #B87D4B 100%);
+  }
+
+  /* Borda de luxo dourada */
+  .border-luxury {
+    border: 1px solid rgba(184, 150, 74, 0.3);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5), 0 4px 20px rgba(184, 150, 74, 0.1);
+  }
+
+  /* Efeito glassmorphism premium */
+  .glass-premium {
+    @apply bg-white/90 backdrop-blur-md;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 rgba(184, 150, 74, 0.1);
+    border: 1px solid rgba(184, 150, 74, 0.15);
+  }
+
+  /* Card de luxo */
+  .card-luxury {
+    @apply bg-white rounded-2xl transition-all duration-500;
+    box-shadow:
+      0 4px 20px rgba(74, 63, 63, 0.06),
+      0 0 0 1px rgba(184, 150, 74, 0.08);
+    border: 1px solid rgba(247, 231, 206, 0.5);
+  }
+
+  .card-luxury:hover {
+    box-shadow:
+      0 20px 60px rgba(74, 63, 63, 0.12),
+      0 0 0 1px rgba(184, 150, 74, 0.15);
+    transform: translateY(-4px);
+    border-color: rgba(184, 150, 74, 0.3);
+  }
+
+  /* Linha decorativa de luxo */
+  .line-luxury {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(184, 150, 74, 0.4) 20%, rgba(184, 150, 74, 0.6) 50%, rgba(184, 150, 74, 0.4) 80%, transparent 100%);
+  }
+
+  /* Badge de luxo */
+  .badge-luxury {
+    @apply px-4 py-1.5 rounded-full text-xs font-medium tracking-wider;
+    background: linear-gradient(135deg, rgba(247, 231, 206, 0.6) 0%, rgba(253, 249, 245, 0.8) 100%);
+    border: 1px solid rgba(184, 150, 74, 0.25);
+    color: #9A7B3D;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* CTA Buttons - Estilo moderno com sombras fortes */
   .btn-emotional {
-    @apply bg-accent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 shadow-lg;
-    box-shadow: 0 10px 30px rgba(217, 140, 154, 0.3);
+    @apply bg-accent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300;
+    box-shadow: var(--shadow-accent);
   }
-  
+
   .btn-emotional:hover {
     @apply bg-accent-hover;
-    box-shadow: 0 15px 40px rgba(217, 140, 154, 0.4);
+    box-shadow: var(--shadow-accent-hover);
+    transform: translateY(-3px);
+  }
+
+  .btn-emotional:active {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-accent);
+  }
+
+  /* Botão secundário com sombra */
+  .btn-secondary {
+    @apply bg-white text-text px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-sm sm:text-base transition-all duration-300 border border-gold/30;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .btn-secondary:hover {
+    @apply bg-secondary border-gold/50;
+    box-shadow: var(--shadow-medium);
     transform: translateY(-2px);
   }
-  
+
+  /* Glassmorfismo moderno */
   .glass-effect {
-    @apply bg-white/80 backdrop-blur-md;
+    @apply bg-white/85 backdrop-blur-md;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
-  
+
+  /* Efeito de elevação com sombras */
   .hover-lift {
     @apply transition-all duration-300;
+    box-shadow: var(--shadow-card);
   }
-  
+
   .hover-lift:hover {
-    @apply -translate-y-1;
-    box-shadow: 0 20px 40px rgba(217, 140, 154, 0.15);
+    @apply -translate-y-2;
+    box-shadow: var(--shadow-card-hover);
   }
-  
+
+  /* Cards com sombras modernas */
+  .card-modern {
+    @apply bg-white rounded-2xl transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-modern:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+
+  /* Elemento flutuante com sombra */
+  .float-shadow {
+    box-shadow: var(--shadow-float);
+  }
+
+  /* Sombra para imagens */
+  .image-shadow {
+    filter: drop-shadow(0 20px 40px rgba(74, 63, 63, 0.25));
+  }
+
+  /* Sombra para navegação */
+  .nav-shadow {
+    box-shadow: var(--shadow-nav);
+  }
+
+  /* Sombra dourada para elementos premium */
+  .gold-glow {
+    box-shadow: 0 0 30px rgba(184, 150, 74, 0.4), 0 4px 20px rgba(184, 150, 74, 0.2);
+  }
+
+  /* Borda com sombra interna */
+  .inset-shadow {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Sombra para texto em destaque */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-strong {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
   .whatsapp-pulse {
     animation: whatsapp-pulse 2s infinite;
   }
-  
+
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
@@ -107,22 +269,55 @@
 ::-webkit-scrollbar-thumb {
   background: var(--gold);
   border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--gold-light);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* Animações */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 20px 40px rgba(74, 63, 63, 0.2));
+  }
+
+  50% {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 30px 50px rgba(74, 63, 63, 0.25));
+  }
+}
+
+@keyframes float-shadow {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+    box-shadow: 0 20px 50px rgba(74, 63, 63, 0.2);
+  }
+
+  50% {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(74, 63, 63, 0.25);
+  }
 }
 
 @keyframes whatsapp-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
 }
 
 /* Selection color */

@@ -21,7 +21,7 @@ const contactInfo = [
     title: 'Instagram',
     content: '@atelieamandamaia',
     subtext: 'Siga nosso trabalho',
-    href: 'https://instagram.com/atelieamandamaia',
+    href: 'https://www.instagram.com/atelie_amandamaia',
   },
   {
     icon: Mail,
@@ -37,21 +37,20 @@ export default function Contato() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contato" className="py-24 bg-cream" ref={ref}>
+    <section id="contato" className="py-24 bg-gradient-to-b from-white via-cream to-secondary/20" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* Header Luxo */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-gold font-medium text-sm tracking-wider uppercase">
-            Fale Conosco
-          </span>
-          <h2 className="font-serif text-4xl sm:text-5xl text-text mt-4 mb-6">
+          <div className="badge-luxury mb-4 inline-block">Fale Conosco</div>
+          <h2 className="font-serif text-4xl sm:text-5xl text-gradient-luxury mt-4 mb-6">
             Entre em Contato
           </h2>
+          <div className="line-luxury max-w-md mx-auto mb-6" />
           <p className="text-text-light max-w-2xl mx-auto">
             Estamos aqui para transformar suas ideias em realidade. Entre em contato
             e vamos criar algo especial juntos.
@@ -72,18 +71,18 @@ export default function Contato() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block bg-white rounded-2xl p-4 sm:p-6 h-full hover:shadow-lg transition-shadow group"
+                  className="block card-luxury p-4 sm:p-6 h-full group"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-gold/30 transition-colors flex-shrink-0">
-                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-gold/40 to-gold/20 rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:from-gold group-hover:to-gold-dark transition-all flex-shrink-0 shadow-soft group-hover:shadow-gold-lux">
+                    <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gold group-hover:text-white group-hover:scale-110 transition-all" />
                   </div>
                   <h3 className="font-medium text-text mb-1 text-sm sm:text-base">{item.title}</h3>
                   <p className="text-text font-medium text-sm sm:text-base break-all sm:break-normal">{item.content}</p>
                   <p className="text-xs sm:text-sm text-text-light mt-1">{item.subtext}</p>
                 </a>
               ) : (
-                <div className="bg-white rounded-2xl p-4 sm:p-6 h-full">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-3 sm:mb-4 flex-shrink-0">
+                <div className="card-luxury p-4 sm:p-6 h-full">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-gold/40 to-gold/20 rounded-xl flex items-center justify-center mb-3 sm:mb-4 flex-shrink-0 shadow-soft">
                     <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
                   </div>
                   <h3 className="font-medium text-text mb-1 text-sm sm:text-base">{item.title}</h3>

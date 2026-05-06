@@ -96,21 +96,20 @@ export default function Portfolio() {
     : portfolioItems.filter(item => item.category === activeCategory);
 
   return (
-    <section id="portfolio" className="py-24 bg-secondary" ref={ref}>
+    <section id="portfolio" className="py-24 bg-gradient-to-b from-secondary via-cream to-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* Header Luxo */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="text-gold font-medium text-sm tracking-wider uppercase">
-            Nosso Trabalho
-          </span>
-          <h2 className="font-serif text-4xl sm:text-5xl text-text mt-4 mb-6">
+          <div className="badge-luxury mb-4 inline-block">Nosso Trabalho</div>
+          <h2 className="font-serif text-4xl sm:text-5xl text-gradient-luxury mt-4 mb-6">
             Portfólio
           </h2>
+          <div className="line-luxury max-w-md mx-auto mb-6" />
           <p className="text-text-light max-w-2xl mx-auto">
             Cada peça conta uma história única. Conheça alguns dos trabalhos que já tivemos
             o prazer de criar para momentos especiais.
@@ -128,9 +127,9 @@ export default function Portfolio() {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === cat.id
-                ? 'bg-gold text-white shadow-lg shadow-gold/30'
-                : 'bg-white text-text hover:bg-primary'
+              className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === cat.id
+                ? 'bg-gradient-to-r from-gold to-gold/80 text-white shadow-gold hover:shadow-lg hover:scale-105'
+                : 'bg-gradient-to-r from-white to-cream text-text hover:bg-primary shadow-soft hover:shadow-medium hover:-translate-y-0.5'
                 }`}
             >
               {cat.label}
@@ -156,7 +155,7 @@ export default function Portfolio() {
                 onClick={() => setSelectedItem(item)}
                 className="group cursor-pointer"
               >
-                <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <div className="card-luxury overflow-hidden">
                   {/* Image Carousel */}
                   <div className="aspect-square bg-gradient-to-br from-primary/40 to-secondary flex items-center justify-center relative overflow-hidden">
                     {/* Current Image */}
@@ -168,9 +167,9 @@ export default function Portfolio() {
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="text-center p-6 w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/40 to-secondary">
-                          <div className="w-20 h-20 mx-auto bg-gold/20 rounded-full flex items-center justify-center">
-                            <span className="font-serif text-3xl text-gold">
+                        <div className="text-center p-6 w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/50 to-secondary/80">
+                          <div className="w-20 h-20 mx-auto bg-gradient-to-br from-gold/40 to-gold/20 rounded-full flex items-center justify-center shadow-soft">
+                            <span className="font-serif text-3xl bg-gradient-to-r from-gold to-accent bg-clip-text text-transparent font-bold">
                               {item.title.charAt(0)}{getCurrentImageIndex(item.id) + 1}
                             </span>
                           </div>
@@ -183,13 +182,13 @@ export default function Portfolio() {
                       <>
                         <button
                           onClick={(e) => prevImage(e, item.id)}
-                          className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center hover:bg-white transition-colors shadow-md z-10"
+                          className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/95 backdrop-blur rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 shadow-soft hover:shadow-medium hover:scale-110 z-10"
                         >
                           <ChevronLeft className="w-5 h-5 text-text" />
                         </button>
                         <button
                           onClick={(e) => nextImage(e, item.id)}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/90 backdrop-blur rounded-full flex items-center justify-center hover:bg-white transition-colors shadow-md z-10"
+                          className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/95 backdrop-blur rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 shadow-soft hover:shadow-medium hover:scale-110 z-10"
                         >
                           <ChevronRight className="w-5 h-5 text-text" />
                         </button>
@@ -206,7 +205,7 @@ export default function Portfolio() {
                               e.stopPropagation();
                               setCurrentImageIndexes(prev => ({ ...prev, [item.id]: idx }));
                             }}
-                            className={`w-2 h-2 rounded-full transition-colors ${idx === getCurrentImageIndex(item.id) ? 'bg-gold' : 'bg-white/60'
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === getCurrentImageIndex(item.id) ? 'bg-gold shadow-gold scale-125' : 'bg-white/70 hover:bg-white'
                               }`}
                           />
                         ))}
@@ -244,7 +243,7 @@ export default function Portfolio() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center mt-12"
         >
-          <button className="bg-white hover:bg-primary text-text px-8 py-3 rounded-full font-medium transition-all duration-300 border border-primary">
+          <button className="bg-gradient-to-r from-white to-champagne hover:from-champagne hover:to-champagne-dark text-text px-8 py-3 rounded-full font-semibold transition-all duration-300 border border-gold/30 shadow-soft hover:shadow-gold-lux hover:-translate-y-1">
             Ver Mais no Instagram
           </button>
         </motion.div>

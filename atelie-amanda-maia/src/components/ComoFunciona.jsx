@@ -38,21 +38,20 @@ export default function ComoFunciona() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="como-funciona" className="py-24 bg-cream" ref={ref}>
+    <section id="como-funciona" className="py-24 bg-gradient-to-b from-cream via-white to-secondary/30" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* Header Luxo */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-gold font-medium text-sm tracking-wider uppercase">
-            Processo Simples
-          </span>
-          <h2 className="font-serif text-4xl sm:text-5xl text-text mt-4 mb-6">
+          <div className="badge-luxury mb-4 inline-block">Processo Simples</div>
+          <h2 className="font-serif text-4xl sm:text-5xl text-gradient-luxury mt-4 mb-6">
             Como Funciona
           </h2>
+          <div className="line-luxury max-w-md mx-auto mb-6" />
           <p className="text-text-light max-w-2xl mx-auto">
             Fazer sua encomenda é fácil! Siga estes passos simples e receba uma peça única
             feita especialmente para você.
@@ -74,10 +73,10 @@ export default function ComoFunciona() {
                 <div className="hidden lg:block absolute top-12 left-[60%] w-[80%] h-0.5 bg-primary/50" />
               )}
 
-              <div className="bg-white rounded-2xl p-6 h-full hover:shadow-lg transition-shadow duration-300">
+              <div className="card-luxury p-6 h-full">
                 {/* Number Badge */}
                 <div className="flex items-center justify-between mb-6">
-                  <span className={`w-12 h-12 ${step.color} rounded-xl flex items-center justify-center font-serif text-xl text-text`}>
+                  <span className="w-12 h-12 rounded-xl flex items-center justify-center font-serif text-xl text-white shadow-soft bg-gradient-to-br from-gold to-gold-dark">
                     {step.number}
                   </span>
                   <step.icon className="w-6 h-6 text-gold" />
@@ -99,11 +98,11 @@ export default function ComoFunciona() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 sm:mt-16 bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-lg"
+          className="mt-12 sm:mt-16 card-luxury rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12"
         >
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="flex items-start gap-3 sm:gap-4">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-gold/30 to-gold/10 rounded-full flex items-center justify-center flex-shrink-0 shadow-soft">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
               </div>
               <div className="min-w-0">
@@ -112,7 +111,7 @@ export default function ComoFunciona() {
               </div>
             </div>
             <div className="flex items-start gap-3 sm:gap-4">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-gold/30 to-gold/10 rounded-full flex items-center justify-center flex-shrink-0 shadow-soft">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
               </div>
               <div className="min-w-0">
@@ -121,7 +120,7 @@ export default function ComoFunciona() {
               </div>
             </div>
             <div className="flex items-start gap-3 sm:gap-4 sm:col-span-2 lg:col-span-1">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-gold/30 to-gold/10 rounded-full flex items-center justify-center flex-shrink-0 shadow-soft">
                 <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
               </div>
               <div className="min-w-0">
@@ -140,13 +139,13 @@ export default function ComoFunciona() {
           className="text-center mt-12"
         >
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               const element = document.querySelector('#encomendar');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 shadow-lg shadow-accent/30"
+            className="bg-gradient-to-r from-accent to-accent-hover text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-accent hover:shadow-accent-hover tracking-wide"
           >
             Criar minha lembrança
           </motion.button>

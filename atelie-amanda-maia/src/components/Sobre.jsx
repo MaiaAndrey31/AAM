@@ -32,7 +32,7 @@ export default function Sobre() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="sobre" className="py-24 bg-cream" ref={ref}>
+    <section id="sobre" className="py-24 bg-gradient-to-b from-cream via-white to-cream" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image Side */}
@@ -44,11 +44,11 @@ export default function Sobre() {
           >
             <div className="relative">
               {/* Decorative elements */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary rounded-full opacity-60" />
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gold/20 rounded-full" />
+              <div className="absolute -top-12 -left-8 w-60 h-60 bg-gradient-to-br from-primary to-accent/80 rounded-full opacity-80 shadow-soft" />
+              <div className="absolute -bottom-6 -left-8 w-32 h-32 bg-gradient-to-tr from-gold/30 to-primary/30 rounded-full shadow-soft" />
 
               {/* Main Image Placeholder */}
-              <div className="relative bg-secondary rounded-3xl overflow-hidden aspect-[4/5] shadow-xl">
+              <div className="relative bg-gradient-to-br from-secondary to-cream rounded-3xl overflow-hidden aspect-[4/5] shadow-card hover:shadow-strong transition-shadow duration-500">
                 <img
                   src={atelieImg}
                   alt="Amanda Maia - Ateliê"
@@ -62,9 +62,9 @@ export default function Sobre() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="absolute -bottom-4 right-2 sm:-bottom-6 sm:-right-6 bg-white rounded-2xl p-4 sm:p-6 shadow-xl max-w-[160px] sm:max-w-[200px]"
+              className="absolute -bottom-4 right-2 sm:-bottom-6 sm:-right-6 bg-gradient-to-br from-white to-cream rounded-2xl p-4 sm:p-6 shadow-card-hover hover:shadow-strong transition-shadow duration-300 max-w-[160px] sm:max-w-[200px]"
             >
-              <p className="font-serif text-2xl sm:text-3xl text-gold mb-1">12+</p>
+              <p className="font-serif text-2xl sm:text-3xl text-gold font-bold mb-1 drop-shadow-soft bg-gradient-to-r from-gold to-accent bg-clip-text text-transparent">12+</p>
               <p className="text-xs sm:text-sm text-text-light">Anos criando sonhos em biscuit</p>
             </motion.div>
           </motion.div>
@@ -75,13 +75,12 @@ export default function Sobre() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="text-gold font-medium text-sm tracking-wider uppercase">
-              Conheça a Artesã
-            </span>
+            <div className="badge-luxury mb-4 inline-block">Conheça a Artesã</div>
 
-            <h2 className="font-serif text-4xl sm:text-5xl text-text mt-4 mb-6">
+            <h2 className="font-serif text-4xl sm:text-5xl text-gradient-luxury mt-4 mb-6">
               Quem está por trás de cada peça especial
             </h2>
+            <div className="line-luxury w-24 mb-6" />
 
             <p className="text-text-light text-lg leading-relaxed mb-6">
               Olá! Sou Amanda Maia, apaixonada por transformar sentimentos em peças únicas de biscuit.
@@ -96,7 +95,7 @@ export default function Sobre() {
               — tudo é modelado à mão, com paciência e amor.
             </p>
 
-            <p className="text-text font-medium italic mb-10">
+            <p className="text-text font-medium italic mb-10 text-lg bg-gradient-to-r from-text via-gold-dark to-text bg-clip-text text-transparent">
               "Modelando com amor, uma lembrança da sua vida"
             </p>
 
@@ -108,9 +107,9 @@ export default function Sobre() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="bg-white rounded-xl p-3 sm:p-4 hover:shadow-md transition-shadow"
+                  className="card-luxury p-3 sm:p-4"
                 >
-                  <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-gold mb-2 sm:mb-3" />
+                  <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-gold mb-2 sm:mb-3 drop-shadow-soft" />
                   <h3 className="font-medium text-text text-xs sm:text-sm mb-1">{feature.title}</h3>
                   <p className="text-[10px] sm:text-xs text-text-light leading-snug">{feature.description}</p>
                 </motion.div>
