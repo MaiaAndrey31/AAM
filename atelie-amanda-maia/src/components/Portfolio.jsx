@@ -28,20 +28,26 @@ const portfolioItems = [
     category: 'casamento',
     title: 'Lembrancinhas de Casamento',
     description: 'Mini noivinhos para presentear convidados',
-    images: [null, null],
+    images: [
+      new URL('../assets/lembca001.jpg', import.meta.url).href,
+    ],
   },
   {
     id: 3,
     category: 'infantil',
-    title: 'Topo de Bolo Safari',
-    description: 'Tema safari para festa de 1 ano',
-    images: [null, null, null, null],
+    title: 'Topo de Bolo Personalizado',
+    description: 'Personalizamos no tema da sua festa!',
+    images: [
+      new URL('../assets/TopoInf001.jpg', import.meta.url).href,
+      new URL('../assets/TopoInf002.jpg', import.meta.url).href,
+      new URL('../assets/TopoInf003.jpg', import.meta.url).href,
+    ],
   },
   {
     id: 4,
     category: 'infantil',
-    title: 'Personagens Disney',
-    description: 'Mickey e Minnie personalizados',
+    title: 'Personagens',
+    description: 'Os mais diversos e queridos personagens',
     images: [null, null],
   },
   {

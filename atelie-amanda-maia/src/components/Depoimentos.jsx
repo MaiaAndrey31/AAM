@@ -7,7 +7,7 @@ const testimonials = [
     id: 1,
     name: 'Mariana e Carlos',
     role: 'Casamento',
-    image: null,
+    image: new URL('../assets/profileDepo001.jpg', import.meta.url).href,
     text: 'O topo de bolo ficou perfeito! Amanda capturou exatamente o que queríamos. Todos os convidados elogiaram e foi a peça mais fotografada do casamento. Superou todas as expectativas!',
     rating: 5,
   },
@@ -15,7 +15,7 @@ const testimonials = [
     id: 2,
     name: 'Fernanda Silva',
     role: 'Aniversário Infantil',
-    image: null,
+    image: new URL('../assets/profileDepo002.png', import.meta.url).href,
     text: 'Encomendei os personagens da Peppa para o aniversário de 3 anos da minha filha. A qualidade é impressionante, parecem de verdade! A Amanda é muito talentosa e atenciosa.',
     rating: 5,
   },
@@ -23,7 +23,7 @@ const testimonials = [
     id: 3,
     name: 'Juliana Mendes',
     role: 'Chá de Bebê',
-    image: null,
+    image: new URL('../assets/profileDepo003.png', import.meta.url).href,
     text: 'As lembrancinhas do chá de bebê foram um sucesso! Cada detalhe foi pensado com carinho. Entrega no prazo, embalagem perfeita. Recomendo de olhos fechados!',
     rating: 5,
   },
@@ -31,7 +31,7 @@ const testimonials = [
     id: 4,
     name: 'Roberta e André',
     role: 'Bodas de Ouro',
-    image: null,
+    image: new URL('../assets/profileDepo004.png', import.meta.url).href,
     text: 'Encomendei uma réplica dos meus pais para as bodas de ouro. Foi um presente inesquecível! Eles choraram de emoção. A Amanda tem um dom especial nas mãos.',
     rating: 5,
   },
@@ -90,11 +90,19 @@ export default function Depoimentos() {
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div className="flex items-center gap-3 sm:gap-4">
-                  {/* Avatar Placeholder */}
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="font-serif text-lg sm:text-xl text-text">
-                      {testimonials[currentIndex].name.charAt(0)}
-                    </span>
+                  {/* Avatar */}
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden bg-secondary">
+                    {testimonials[currentIndex].image ? (
+                      <img
+                        src={testimonials[currentIndex].image}
+                        alt={testimonials[currentIndex].name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="font-serif text-lg sm:text-xl text-text">
+                        {testimonials[currentIndex].name.charAt(0)}
+                      </span>
+                    )}
                   </div>
                   <div className="min-w-0">
                     <h4 className="font-medium text-text text-sm sm:text-base truncate">
