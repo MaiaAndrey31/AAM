@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Sparkles as SparklesIcon } from 'lucide-react';
 import bannerImg from '../assets/Banner.png';
 import SparkleButton from './SparkleButton.jsx';
+import AnimatedCounter from './AnimatedCounter.jsx';
 
 export default function Hero() {
   const scrollToSection = (href) => {
@@ -146,17 +147,23 @@ export default function Hero() {
             className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-8 mt-8 w-full"
           >
             <div className="text-center px-2 sm:px-4 py-2">
-              <div className="font-serif text-xl sm:text-3xl text-gradient-luxury font-bold">1000+</div>
+              <div className="font-serif text-xl sm:text-3xl text-gradient-luxury font-bold">
+                <AnimatedCounter end={1000} suffix="+" duration={2} />
+              </div>
               <div className="text-[10px] sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Lembranças</div>
             </div>
             <div className="w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent hidden sm:block" />
             <div className="text-center px-2 sm:px-4 py-2">
-              <div className="font-serif text-xl sm:text-3xl text-gradient-luxury font-bold">12+</div>
+              <div className="font-serif text-xl sm:text-3xl text-gradient-luxury font-bold">
+                <AnimatedCounter end={12} suffix="+" duration={1.5} />
+              </div>
               <div className="text-[10px] sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Anos</div>
             </div>
             <div className="w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent hidden sm:block" />
             <div className="text-center px-2 sm:px-4 py-2">
-              <div className="font-serif text-xl sm:text-3xl text-gradient-luxury font-bold">100%</div>
+              <div className="font-serif text-xl sm:text-3xl text-gradient-luxury font-bold">
+                <AnimatedCounter end={100} suffix="%" duration={1.5} />
+              </div>
               <div className="text-[10px] sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Exclusivo</div>
             </div>
           </motion.div>

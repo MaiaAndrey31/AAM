@@ -243,9 +243,14 @@ export default function Portfolio() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="text-center mt-12"
         >
-          <button className="bg-gradient-to-r from-white to-champagne hover:from-champagne hover:to-champagne-dark text-text px-8 py-3 rounded-full font-semibold transition-all duration-300 border border-gold/30 shadow-soft hover:shadow-gold-lux hover:-translate-y-1">
+          <a
+            href="https://www.instagram.com/atelie_amandamaia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-gradient-to-r from-white to-champagne hover:from-champagne hover:to-champagne-dark text-text px-8 py-3 rounded-full font-semibold transition-all duration-300 border border-gold/30 shadow-soft hover:shadow-gold-lux hover:-translate-y-1"
+          >
             Ver Mais no Instagram
-          </button>
+          </a>
         </motion.div>
       </div>
 
