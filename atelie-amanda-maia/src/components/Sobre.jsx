@@ -77,18 +77,18 @@ export default function Sobre() {
           >
             <div className="badge-luxury mb-4 inline-block">Conheça a Artesã</div>
 
-            <h2 className="font-serif text-4xl sm:text-5xl text-gradient-luxury mt-4 mb-6">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] text-gradient-luxury mt-4 mb-4 lg:mb-6">
               Quem está por trás de cada peça especial
             </h2>
             <div className="line-luxury w-24 mb-6" />
 
-            <p className="text-text-light text-lg leading-relaxed mb-6">
+            <p className="text-text-light text-base lg:text-lg leading-relaxed mb-4 lg:mb-6">
               Olá! Sou Amanda Maia, apaixonada por transformar sentimentos em peças únicas de biscuit.
               Há mais de 12 anos, venho ajudando pessoas a eternizar seus momentos mais especiais através
               da arte manual.
             </p>
 
-            <p className="text-text-light leading-relaxed mb-8">
+            <p className="text-text-light text-sm lg:text-base leading-relaxed mb-6 lg:mb-8">
               Cada topo de bolo, cada noivinho, cada lembrancinha carrega uma história.
               Trabalho exclusivamente com encomendas personalizadas, porque acredito que
               seu momento único merece uma peça igualmente exclusiva. Não uso moldes prontos

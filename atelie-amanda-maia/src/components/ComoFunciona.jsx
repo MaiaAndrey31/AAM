@@ -49,11 +49,11 @@ export default function ComoFunciona() {
           className="text-center mb-16"
         >
           <div className="badge-luxury mb-4 inline-block">Processo Simples</div>
-          <h2 className="font-serif text-4xl sm:text-5xl text-gradient-luxury mt-4 mb-6">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] text-gradient-luxury mt-4 mb-4 lg:mb-6">
             Como Funciona
           </h2>
           <div className="line-luxury max-w-md mx-auto mb-6" />
-          <p className="text-text-light max-w-2xl mx-auto">
+          <p className="text-text-light text-sm lg:text-base max-w-2xl mx-auto">
             Fazer sua encomenda é fácil! Siga estes passos simples e receba uma peça única
             feita especialmente para você.
           </p>

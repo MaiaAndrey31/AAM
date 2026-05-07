@@ -88,11 +88,11 @@ export default function Encomendar() {
             transition={{ duration: 0.8 }}
           >
             <div className="badge-luxury mb-4 inline-block">Vamos Criar Juntos</div>
-            <h2 className="font-serif text-4xl sm:text-5xl text-gradient-luxury mt-4 mb-6">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] text-gradient-luxury mt-4 mb-4 lg:mb-6">
               Faça sua Encomenda
             </h2>
             <div className="line-luxury w-24 mb-6" />
-            <p className="text-text-light text-lg leading-relaxed mb-8">
+            <p className="text-text-light text-base lg:text-lg leading-relaxed mb-6 lg:mb-8">
               Preencha o formulário ao lado e envie sua solicitação diretamente pelo WhatsApp.
               Respondemos em poucas horas com seu orçamento personalizado!
             </p>

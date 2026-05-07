@@ -78,8 +78,8 @@ export default function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-text leading-tight mb-5"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] text-text leading-tight mb-4 lg:mb-6 drop-shadow-soft"
           >
             <span className="block">Transformando</span>
             <span className="text-gradient block drop-shadow-soft">momentos</span>
@@ -92,7 +92,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-text-light text-base sm:text-lg mb-3 italic"
+            className="text-text-light text-sm sm:text-base lg:text-lg mb-2 lg:mb-3 italic"
           >
             "Modelando com amor, uma lembrança da sua vida"
           </motion.p>
@@ -101,7 +101,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-text-light/80 max-w-md mb-8 text-sm sm:text-base"
+            className="text-text-light/80 max-w-sm lg:max-w-md mb-6 lg:mb-8 text-sm lg:text-base"
           >
             Cada peça conta uma história. Topo de bolo, noivinhos e lembrancinhas que eternizam seus momentos mais especiais.
           </motion.p>
@@ -174,7 +174,7 @@ export default function Hero() {
             alt="Amanda Maia com biscuit artesanal personalizado"
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-full h-auto max-w-full lg:max-w-[700px] object-contain drop-shadow-strong"
+            className="w-full h-auto max-w-[400px] sm:max-w-[500px] lg:max-w-[550px] xl:max-w-[600px] object-contain drop-shadow-strong"
             style={{ filter: 'drop-shadow(0 25px 60px rgba(74, 63, 63, 0.35))' }}
           />
         </motion.div>

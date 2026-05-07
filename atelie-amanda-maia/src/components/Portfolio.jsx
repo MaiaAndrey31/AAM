@@ -106,11 +106,11 @@ export default function Portfolio() {
           className="text-center mb-12"
         >
           <div className="badge-luxury mb-4 inline-block">Nosso Trabalho</div>
-          <h2 className="font-serif text-4xl sm:text-5xl text-gradient-luxury mt-4 mb-6">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] text-gradient-luxury mt-4 mb-4 lg:mb-6">
             Portfólio
           </h2>
           <div className="line-luxury max-w-md mx-auto mb-6" />
-          <p className="text-text-light max-w-2xl mx-auto">
+          <p className="text-text-light text-sm lg:text-base max-w-2xl mx-auto">
             Cada peça conta uma história única. Conheça alguns dos trabalhos que já tivemos
             o prazer de criar para momentos especiais.
           </p>
