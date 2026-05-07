@@ -79,8 +79,8 @@ export default function Encomendar() {
 
   return (
     <section id="encomendar" className="py-24 bg-gradient-to-b from-secondary via-cream to-white" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left Side - Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -134,7 +134,7 @@ export default function Encomendar() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} action={FORMSPREE_ENDPOINT} method="POST" className="card-luxury rounded-2xl sm:rounded-3xl p-5 sm:p-8">
+            <form onSubmit={handleSubmit} action={FORMSPREE_ENDPOINT} method="POST" className="card-luxury rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 max-w-md lg:max-w-none mx-auto lg:mx-0">
               <h3 className="font-serif text-xl sm:text-2xl text-gradient-luxury mb-4 sm:mb-6 text-center">
                 Solicitar Orçamento
               </h3>

@@ -39,7 +39,7 @@ export default function Hero() {
       </div>
 
       {/* Two-column layout */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12 flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12 flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
 
         {/* LEFT — Text Content */}
         <div className="flex-[0.9] flex flex-col items-start text-left">

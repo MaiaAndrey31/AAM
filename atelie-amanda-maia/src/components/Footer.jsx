@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-gold/5 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-48 h-48 bg-gradient-to-tl from-primary/5 to-transparent rounded-full blur-3xl" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
 
 
         {/* Grid Principal */}

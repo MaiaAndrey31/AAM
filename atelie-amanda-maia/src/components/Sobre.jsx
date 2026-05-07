@@ -33,7 +33,7 @@ export default function Sobre() {
 
   return (
     <section id="sobre" className="py-24 bg-gradient-to-b from-cream via-white to-cream" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image Side */}
           <motion.div

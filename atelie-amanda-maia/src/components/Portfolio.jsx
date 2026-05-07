@@ -97,7 +97,7 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="py-24 bg-gradient-to-b from-secondary via-cream to-white" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Luxo */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
