@@ -1,5 +1,7 @@
 # Ateliê Amanda Maia
 
+[![Deploy na Vercel](https://img.shields.io/badge/Deploy-Vercel-black)](https://aam-gotk-git-main-maiaandrey31s-projects.vercel.app)
+
 Site profissional em React para ateliê de biscuit artesanal personalizado.
 
 ## 🎯 Sobre o Projeto
