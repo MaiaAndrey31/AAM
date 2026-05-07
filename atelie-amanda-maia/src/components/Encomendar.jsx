@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Send, Calendar, User, Phone, FileText, Gift, CheckCircle } from 'lucide-react';
+import SparkleButton from './SparkleButton.jsx';
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mzdogdrj';
 
@@ -224,13 +225,13 @@ export default function Encomendar() {
                 />
               </div>
 
-              {/* Submit Button */}
-              <motion.button
+              {/* Submit Button com Sparkle */}
+              <SparkleButton
                 type="submit"
+                variant="primary"
+                size="lg"
                 disabled={isSubmitting}
-                whileHover={{ scale: isSubmitting ? 1 : 1.02, y: isSubmitting ? 0 : -2 }}
-                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                className="w-full bg-gradient-to-r from-accent to-accent-hover disabled:from-accent/50 disabled:to-accent-hover/50 text-white py-3 sm:py-4 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 shadow-accent hover:shadow-accent-hover flex items-center justify-center gap-2 tracking-wide"
+                className="w-full rounded-xl"
               >
                 {isSubmitting ? (
                   <>
@@ -248,7 +249,7 @@ export default function Encomendar() {
                     <span className="truncate">Fazer minha encomenda</span>
                   </>
                 )}
-              </motion.button>
+              </SparkleButton>
 
               {submitStatus === 'success' && (
                 <p className="text-center text-xs text-green-600 mt-3 sm:mt-4">

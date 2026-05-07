@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Heart } from 'lucide-react';
+import SparkleButton from './SparkleButton.jsx';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -69,14 +70,13 @@ export default function Navbar() {
                   {item.label}
                 </a>
               ))}
-              <motion.button
-                whileHover={{ scale: 1.05, y: -1 }}
-                whileTap={{ scale: 0.95 }}
+              <SparkleButton
+                variant="primary"
+                size="sm"
                 onClick={() => scrollToSection('#encomendar')}
-                className="bg-gradient-to-r from-accent to-accent-hover text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-accent hover:shadow-accent-hover tracking-wide"
               >
                 Fazer minha encomenda
-              </motion.button>
+              </SparkleButton>
             </div>
 
             {/* Mobile Menu Button */}
@@ -120,13 +120,14 @@ export default function Navbar() {
                     {item.label}
                   </a>
                 ))}
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
+                <SparkleButton
+                  variant="primary"
+                  size="sm"
                   onClick={() => scrollToSection('#encomendar')}
-                  className="bg-gradient-to-r from-accent to-accent-hover text-white px-5 py-3 rounded-full font-semibold mt-2 shadow-accent tracking-wide"
+                  className="mt-2"
                 >
                   Fazer minha encomenda
-                </motion.button>
+                </SparkleButton>
               </div>
             </motion.div>
           </motion.div>

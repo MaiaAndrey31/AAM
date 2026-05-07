@@ -331,3 +331,574 @@
   outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* ============================================
+   SPARKLE BUTTON - Efeito de brilho premium
+   ============================================ */
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--sparkle-color, rgba(255, 255, 255, 0.9));
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow:
+    0 0 6px var(--sparkle-color, rgba(255, 255, 255, 0.8)),
+    0 0 12px var(--sparkle-color, rgba(255, 255, 255, 0.6)),
+    0 0 18px var(--sparkle-color, rgba(255, 255, 255, 0.4));
+}
+
+.sparkle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: inherit;
+  box-shadow: inherit;
+}
+
+.sparkle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 200%;
+  height: 40%;
+  background: linear-gradient(90deg, transparent, var(--sparkle-color, rgba(255, 255, 255, 0.9)), transparent);
+  border-radius: 2px;
+}
+
+/* Posições dos sparkles */
+.sparkle-1 {
+  top: 15%;
+  left: 10%;
+}
+
+.sparkle-2 {
+  top: 20%;
+  right: 15%;
+}
+
+.sparkle-3 {
+  bottom: 25%;
+  left: 20%;
+}
+
+.sparkle-4 {
+  bottom: 15%;
+  right: 10%;
+}
+
+.sparkle-5 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  width: 3px;
+  height: 3px;
+}
+
+/* Sparkles extras - mais glitter */
+.sparkle-6 {
+  top: 8%;
+  left: 35%;
+  width: 5px;
+  height: 5px;
+}
+
+.sparkle-7 {
+  top: 35%;
+  right: 8%;
+  width: 4px;
+  height: 4px;
+}
+
+.sparkle-8 {
+  bottom: 8%;
+  left: 40%;
+  width: 5px;
+  height: 5px;
+}
+
+.sparkle-9 {
+  top: 60%;
+  left: 12%;
+  width: 4px;
+  height: 4px;
+}
+
+.sparkle-10 {
+  top: 45%;
+  right: 20%;
+  width: 6px;
+  height: 6px;
+}
+
+/* Animações de sparkles no hover */
+.group:hover .sparkle-1 {
+  animation: sparkle-float-1 0.6s ease-out forwards;
+}
+
+.group:hover .sparkle-2 {
+  animation: sparkle-float-2 0.7s ease-out 0.1s forwards;
+}
+
+.group:hover .sparkle-3 {
+  animation: sparkle-float-3 0.5s ease-out 0.05s forwards;
+}
+
+.group:hover .sparkle-4 {
+  animation: sparkle-float-4 0.6s ease-out 0.15s forwards;
+}
+
+.group:hover .sparkle-5 {
+  animation: sparkle-center 0.8s ease-out 0.2s forwards;
+}
+
+.group:hover .sparkle-6 {
+  animation: sparkle-float-6 0.7s ease-out 0.1s forwards;
+}
+
+.group:hover .sparkle-7 {
+  animation: sparkle-float-7 0.6s ease-out 0.25s forwards;
+}
+
+.group:hover .sparkle-8 {
+  animation: sparkle-float-8 0.8s ease-out 0.05s forwards;
+}
+
+.group:hover .sparkle-9 {
+  animation: sparkle-float-9 0.65s ease-out 0.3s forwards;
+}
+
+.group:hover .sparkle-10 {
+  animation: sparkle-burst-particle 0.9s ease-out 0.15s forwards;
+}
+
+/* Efeito de explosão de sparkles */
+.group:hover .sparkle-burst {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.4) 0%,
+      transparent 50%);
+  opacity: 0;
+  animation: burst-glow 0.6s ease-out 0.1s forwards;
+}
+
+/* Keyframes das animações */
+@keyframes sparkle-float-1 {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.5);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1);
+  }
+
+  70% {
+    opacity: 0.8;
+    transform: translateY(-15px) scale(0.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-25px) scale(0.3);
+  }
+}
+
+@keyframes sparkle-float-2 {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) translateX(5px) scale(0.5);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-3px) translateX(-2px) scale(1);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: translateY(-12px) translateX(-8px) scale(0.7);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) translateX(-12px) scale(0.3);
+  }
+}
+
+@keyframes sparkle-float-3 {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px) scale(0.5);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translateY(8px) scale(1);
+  }
+
+  80% {
+    opacity: 0.6;
+    transform: translateY(15px) scale(0.6);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.3);
+  }
+}
+
+@keyframes sparkle-float-4 {
+  0% {
+    opacity: 0;
+    transform: translateY(5px) translateX(-3px) scale(0.5);
+  }
+
+  35% {
+    opacity: 1;
+    transform: translateY(-8px) translateX(5px) scale(1);
+  }
+
+  75% {
+    opacity: 0.7;
+    transform: translateY(-18px) translateX(10px) scale(0.7);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-28px) translateX(15px) scale(0.3);
+  }
+}
+
+@keyframes sparkle-center {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+
+  40% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  70% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+/* Keyframes dos sparkles extras (mais glitter) */
+@keyframes sparkle-float-6 {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.4);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.1);
+  }
+
+  60% {
+    opacity: 0.8;
+    transform: translateY(-20px) scale(0.9);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-35px) scale(0.2);
+  }
+}
+
+@keyframes sparkle-float-7 {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px) scale(0.4);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateX(5px) scale(1);
+  }
+
+  65% {
+    opacity: 0.7;
+    transform: translateX(15px) scale(0.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(25px) scale(0.3);
+  }
+}
+
+@keyframes sparkle-float-8 {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.4);
+  }
+
+  35% {
+    opacity: 1;
+    transform: translateY(10px) scale(1.05);
+  }
+
+  70% {
+    opacity: 0.6;
+    transform: translateY(20px) scale(0.7);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.2);
+  }
+}
+
+@keyframes sparkle-float-9 {
+  0% {
+    opacity: 0;
+    transform: translateX(8px) translateY(5px) scale(0.4);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateX(-5px) translateY(-5px) scale(1);
+  }
+
+  65% {
+    opacity: 0.8;
+    transform: translateX(-12px) translateY(-12px) scale(0.75);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-20px) translateY(-20px) scale(0.25);
+  }
+}
+
+@keyframes sparkle-burst-particle {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2) rotate(0deg);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3) rotate(90deg);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: translate(-30%, -80%) scale(1) rotate(180deg);
+  }
+
+  80% {
+    opacity: 0.4;
+    transform: translate(-10%, -120%) scale(0.6) rotate(270deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(0%, -150%) scale(0.2) rotate(360deg);
+  }
+}
+
+@keyframes burst-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+/* Efeito de shimmer no fundo do botão */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Efeito de brilho sutil contínuo */
+@keyframes subtle-glow {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(184, 150, 74, 0.3),
+      0 0 40px rgba(184, 150, 74, 0.1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 30px rgba(184, 150, 74, 0.5),
+      0 0 60px rgba(184, 150, 74, 0.2);
+  }
+}
+
+/* ============================================
+   WHATSAPP BUTTON SPARKLES
+   ============================================ */
+
+.whatsapp-sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.8),
+    0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.whatsapp-sparkle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 150%;
+  height: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+  border-radius: 1px;
+}
+
+.whatsapp-sparkle-1 {
+  top: 10%;
+  left: 15%;
+}
+
+.whatsapp-sparkle-2 {
+  top: 20%;
+  right: 20%;
+}
+
+.whatsapp-sparkle-3 {
+  bottom: 15%;
+  left: 25%;
+}
+
+.group:hover .whatsapp-sparkle-1 {
+  animation: whatsapp-sparkle-float 0.5s ease-out forwards;
+}
+
+.group:hover .whatsapp-sparkle-2 {
+  animation: whatsapp-sparkle-float 0.6s ease-out 0.1s forwards;
+}
+
+.group:hover .whatsapp-sparkle-3 {
+  animation: whatsapp-sparkle-float 0.4s ease-out 0.05s forwards;
+}
+
+@keyframes whatsapp-sparkle-float {
+  0% {
+    opacity: 0;
+    transform: translateY(5px) scale(0.5);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1);
+  }
+
+  70% {
+    opacity: 0.6;
+    transform: translateY(-10px) scale(0.7);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.3);
+  }
+}
+
+/* ============================================
+   MOUSE TRAIL GLITTER - Rastro de brilho
+   ============================================ */
+
+.particle-glitter {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particle-float 0.8s ease-out forwards;
+  box-shadow:
+    0 0 6px var(--particle-color),
+    0 0 12px var(--particle-color),
+    0 0 18px var(--particle-color);
+}
+
+.particle-glitter::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: inherit;
+  box-shadow: inherit;
+}
+
+.particle-glitter::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 180%;
+  height: 40%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      var(--particle-color) 50%,
+      transparent 100%);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -30%) scale(0.9) rotate(180deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -80%) scale(0.3) rotate(360deg);
+  }
+}

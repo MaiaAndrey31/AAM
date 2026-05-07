@@ -9,6 +9,7 @@ import {
   Contato,
   Footer,
   WhatsAppButton,
+  MouseTrail,
 } from './components';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <MouseTrail />
     </div>
   );
 }

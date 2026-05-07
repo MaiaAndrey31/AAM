@@ -8,3 +8,5 @@ export { default as Encomendar } from './Encomendar.jsx';
 export { default as Contato } from './Contato.jsx';
 export { default as Footer } from './Footer.jsx';
 export { default as WhatsAppButton } from './WhatsAppButton.jsx';
+export { default as SparkleButton } from './SparkleButton.jsx';
+export { default as MouseTrail } from './MouseTrail.jsx';

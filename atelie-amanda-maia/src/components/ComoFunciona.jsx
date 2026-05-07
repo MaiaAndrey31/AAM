@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MessageSquare, Image, Palette, Truck, Check } from 'lucide-react';
+import SparkleButton from './SparkleButton.jsx';
 
 const steps = [
   {
@@ -131,24 +132,23 @@ export default function ComoFunciona() {
           </div>
         </motion.div>
 
-        {/* CTA */}
+        {/* CTA com Sparkle */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <motion.button
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+          <SparkleButton
+            variant="primary"
+            size="lg"
             onClick={() => {
               const element = document.querySelector('#encomendar');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-gradient-to-r from-accent to-accent-hover text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-accent hover:shadow-accent-hover tracking-wide"
           >
             Criar minha lembrança
-          </motion.button>
+          </SparkleButton>
         </motion.div>
       </div>
     </section>

@@ -44,8 +44,8 @@ export default function Sobre() {
           >
             <div className="relative">
               {/* Decorative elements */}
-              <div className="absolute -top-12 -left-8 w-60 h-60 bg-gradient-to-br from-primary to-accent/80 rounded-full opacity-80 shadow-soft" />
-              <div className="absolute -bottom-6 -left-8 w-32 h-32 bg-gradient-to-tr from-gold/30 to-primary/30 rounded-full shadow-soft" />
+              <div className="absolute -bottom-12 -left-8 w-60 h-60 bg-gradient-to-br from-primary to-accent/80 rounded-full opacity-80 shadow-soft" />
+              <div className="absolute -top-6 -left-8 w-32 h-32 bg-gradient-to-tr from-gold/70 to-primary/30 rounded-full shadow-soft" />
 
               {/* Main Image Placeholder */}
               <div className="relative bg-gradient-to-br from-secondary to-cream rounded-3xl overflow-hidden aspect-[4/5] shadow-card hover:shadow-strong transition-shadow duration-500">

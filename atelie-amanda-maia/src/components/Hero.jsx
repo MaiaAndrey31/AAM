@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowDown, Sparkles as SparklesIcon } from 'lucide-react';
 import bannerImg from '../assets/Banner.png';
+import SparkleButton from './SparkleButton.jsx';
 
 export default function Hero() {
   const scrollToSection = (href) => {
@@ -49,7 +50,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 glass-premium px-5 py-2.5 rounded-full mb-6"
           >
-            <Sparkles className="w-4 h-4 text-gold-dark" />
+            <SparklesIcon className="w-4 h-4 text-gold-dark" />
             <span className="text-xs font-medium text-gold-dark tracking-wider uppercase">
               Biscuit Artesanal Personalizado
             </span>
@@ -105,29 +106,28 @@ export default function Hero() {
             Cada peça conta uma história. Topo de bolo, noivinhos e lembrancinhas que eternizam seus momentos mais especiais.
           </motion.p>
 
-          {/* CTA Buttons Luxo */}
+          {/* CTA Buttons Luxo com Sparkle */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
-            <motion.button
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+            <SparkleButton
+              variant="primary"
+              size="md"
               onClick={() => scrollToSection('#encomendar')}
-              className="bg-gradient-to-r from-accent to-accent-hover text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 shadow-accent hover:shadow-accent-hover tracking-wide"
             >
-              ✨ Quero minha peça personalizada
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.03, y: -2 }}
-              whileTap={{ scale: 0.98 }}
+              <SparklesIcon className="w-4 h-4" />
+              Quero minha peça personalizada
+            </SparkleButton>
+            <SparkleButton
+              variant="secondary"
+              size="md"
               onClick={() => scrollToSection('#portfolio')}
-              className="bg-gradient-to-r from-white to-champagne text-text px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 border border-gold/30 shadow-soft hover:shadow-gold-lux"
             >
               Ver histórias criadas
-            </motion.button>
+            </SparkleButton>
           </motion.div>
 
           {/* Linha decorativa inferior */}
