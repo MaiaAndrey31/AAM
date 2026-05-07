@@ -13,7 +13,7 @@ const features = [
   {
     icon: Hand,
     title: '100% Artesanal',
-    description: 'Processo manual do início ao fim, sem moldes industriais, garantindo exclusividade'
+    description: 'Processo manual do início ao fim, garantindo exclusividade'
   },
   {
     icon: Award,
@@ -91,8 +91,7 @@ export default function Sobre() {
             <p className="text-text-light text-sm lg:text-base leading-relaxed mb-6 lg:mb-8">
               Cada topo de bolo, cada noivinho, cada lembrancinha carrega uma história.
               Trabalho exclusivamente com encomendas personalizadas, porque acredito que
-              seu momento único merece uma peça igualmente exclusiva. Não uso moldes prontos
-              — tudo é modelado à mão, com paciência e amor.
+              seu momento único merece uma peça igualmente exclusiva. Tudo à mão, com paciência e amor.
             </p>
 
             <p className="text-text font-medium italic mb-10 text-lg bg-gradient-to-r from-text via-gold-dark to-text bg-clip-text text-transparent">

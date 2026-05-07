@@ -60,7 +60,7 @@ const portfolioItems = [
   {
     id: 6,
     category: 'personalizados',
-    title: 'Lembrancinha Corporativa',
+    title: 'Funko Pop',
     description: 'Peças sob encomenda para eventos',
     images: [null, null],
   },
