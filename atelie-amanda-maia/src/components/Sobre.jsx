@@ -52,7 +52,7 @@ export default function Sobre() {
                 <img
                   src={atelieImg}
                   alt="Amanda Maia - Ateliê"
-                  className="w-full  object-cover"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>

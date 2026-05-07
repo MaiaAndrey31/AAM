@@ -39,7 +39,7 @@ export default function Hero() {
       </div>
 
       {/* Two-column layout */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-24 pb-12 flex flex-col lg:flex-row items-center gap-8 lg:gap-10">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-12 flex flex-col lg:flex-row items-center gap-6 lg:gap-10">
 
         {/* LEFT — Text Content */}
         <div className="flex-[0.9] flex flex-col items-start text-left">
@@ -143,21 +143,21 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="flex gap-8 mt-8 w-full"
+            className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-8 mt-8 w-full"
           >
-            <div className="text-center px-4 py-2">
-              <div className="font-serif text-2xl sm:text-3xl text-gradient-luxury font-bold">1000+</div>
-              <div className="text-xs sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Lembranças Criadas</div>
+            <div className="text-center px-2 sm:px-4 py-2">
+              <div className="font-serif text-xl sm:text-3xl text-gradient-luxury font-bold">1000+</div>
+              <div className="text-[10px] sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Lembranças</div>
             </div>
-            <div className="w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
-            <div className="text-center px-4 py-2">
-              <div className="font-serif text-2xl sm:text-3xl text-gradient-luxury font-bold">12+</div>
-              <div className="text-xs sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Anos de Amor</div>
+            <div className="w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent hidden sm:block" />
+            <div className="text-center px-2 sm:px-4 py-2">
+              <div className="font-serif text-xl sm:text-3xl text-gradient-luxury font-bold">12+</div>
+              <div className="text-[10px] sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Anos</div>
             </div>
-            <div className="w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
-            <div className="text-center px-4 py-2">
-              <div className="font-serif text-2xl sm:text-3xl text-gradient-luxury font-bold">100%</div>
-              <div className="text-xs sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Exclusivo</div>
+            <div className="w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent hidden sm:block" />
+            <div className="text-center px-2 sm:px-4 py-2">
+              <div className="font-serif text-xl sm:text-3xl text-gradient-luxury font-bold">100%</div>
+              <div className="text-[10px] sm:text-sm text-text-light mt-1 leading-tight font-medium tracking-wider uppercase">Exclusivo</div>
             </div>
           </motion.div>
         </div>
@@ -174,8 +174,8 @@ export default function Hero() {
             alt="Amanda Maia com biscuit artesanal personalizado"
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-full object-contain drop-shadow-strong"
-            style={{ minWidth: '800px', minHeight: '800px', filter: 'drop-shadow(0 25px 60px rgba(74, 63, 63, 0.35))' }}
+            className="w-full h-auto max-w-full lg:max-w-[700px] object-contain drop-shadow-strong"
+            style={{ filter: 'drop-shadow(0 25px 60px rgba(74, 63, 63, 0.35))' }}
           />
         </motion.div>
       </div>
