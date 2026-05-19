@@ -15,24 +15,102 @@ export default {
     },
     extend: {
       colors: {
-        'primary': '#E8B4B8',      // Rosé suave - cor principal
-        'secondary': '#F5E6DA',    // Bege claro - fundos
-        'accent': '#C85A6E',       // CTA botões - rosé mais intenso e vibrante
-        'accent-hover': '#B84A5E', // Hover dos botões - tom mais escuro
-        'gold': '#B8964A',         // Detalhes premium - dourado mais saturado
-        'gold-light': '#D4B97A',   // Dourado claro
-        'gold-dark': '#9A7B3D',    // Dourado escuro para luxo
-        'champagne': '#F7E7CE',    // Champanhe elegante
-        'champagne-dark': '#E8D4B8', // Champanhe mais intenso
-        'bronze': '#B87D4B',       // Bronze premium
-        'pearl': '#F8F6F0',        // Pérola sofisticada
-        'rose-gold': '#E6B8A5',    // Rose gold metálico
-        'text': '#4A3F3F',         // Texto principal - cinza quente mais escuro para contraste
-        'text-light': '#6B5E5E',   // Texto secundário
-        'detail': '#8B6B42',       // Elementos artesanais
-        'white': '#FFFFFF',
+        /* Core palette used by @apply directives in index.css */
+        'text': '#4A3F3F',
+        'text-light': '#6B5E5E',
+        'accent': '#C85A6E',
+        'accent-hover': '#B84A5E',
+        'gold': '#B8964A',
+        'gold-light': '#D4B97A',
+        'detail': '#8B6B42',
+        'dark': '#2D2424',
         'cream': '#FDF9F5',
-        'dark': '#2D2424',         // Cor escura para alto contraste
+
+        /* Material Design 3 palette */
+        'tertiary': '#655a4c',
+        'primary': '#9d394e',
+        'surface': '#fff8f7',
+        'on-tertiary': '#ffffff',
+        'surface-container': '#f7ebeb',
+        'on-tertiary-fixed': '#221a0f',
+        'tertiary-container': '#7e7363',
+        'outline-variant': '#dbc0c2',
+        'on-error-container': '#93000a',
+        'primary-fixed': '#ffd9dd',
+        'on-surface': '#201a1a',
+        'tertiary-fixed-dim': '#d2c4b2',
+        'error': '#ba1a1a',
+        'surface-bright': '#fff8f7',
+        'background': '#fff8f7',
+        'on-background': '#201a1a',
+        'secondary-container': '#ffdb8f',
+        'tertiary-fixed': '#efe0cd',
+        'error-container': '#ffdad6',
+        'secondary': '#745b1c',
+        'on-primary': '#ffffff',
+        'surface-container-low': '#fdf1f0',
+        'on-primary-fixed-variant': '#812439',
+        'primary-container': '#bc5165',
+        'secondary-fixed-dim': '#e4c279',
+        'on-primary-container': '#fffbff',
+        'on-primary-fixed': '#400012',
+        'on-secondary-fixed-variant': '#5a4303',
+        'inverse-primary': '#ffb2bc',
+        'inverse-surface': '#352f2f',
+        'secondary-fixed': '#ffdf9b',
+        'surface-container-high': '#f1e6e5',
+        'surface-variant': '#ebe0df',
+        'on-surface-variant': '#554244',
+        'on-error': '#ffffff',
+        'surface-soft': '#FAF3E8',
+        'inverse-on-surface': '#faeeee',
+        'surface-dim': '#e3d7d7',
+        'on-secondary-container': '#795f20',
+        'background-cream': '#FDFBF7',
+        'surface-tint': '#a03b50',
+        'on-secondary': '#ffffff',
+        'dusty-rose-light': '#E29DA9',
+        'on-tertiary-fixed-variant': '#4f4538',
+        'primary-fixed-dim': '#ffb2bc',
+        'surface-container-highest': '#ebe0df',
+        'on-secondary-fixed': '#251a00',
+        'on-tertiary-container': '#fffbff',
+        'outline': '#887174',
+      },
+      borderRadius: {
+        'DEFAULT': '0.25rem',
+        'lg': '0.5rem',
+        'xl': '0.75rem',
+        'full': '9999px',
+      },
+      spacing: {
+        'stack-md': '16px',
+        'stack-lg': '32px',
+        'section-gap': '120px',
+        'container-max': '1200px',
+        'margin-edge': '32px',
+        'stack-sm': '8px',
+        'gutter': '24px',
+      },
+      fontFamily: {
+        'body-md': ['Inter', 'sans-serif'],
+        'testimonial-quote': ['Playfair Display', 'serif'],
+        'headline-lg-mobile': ['Playfair Display', 'serif'],
+        'display-lg': ['Playfair Display', 'serif'],
+        'headline-lg': ['Playfair Display', 'serif'],
+        'headline-md': ['Playfair Display', 'serif'],
+        'body-lg': ['Inter', 'sans-serif'],
+        'label-caps': ['Inter', 'sans-serif'],
+      },
+      fontSize: {
+        'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'testimonial-quote': ['24px', { lineHeight: '34px' }],
+        'headline-lg-mobile': ['32px', { lineHeight: '40px', fontWeight: '600' }],
+        'display-lg': ['56px', { lineHeight: '64px', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'headline-lg': ['40px', { lineHeight: '48px', fontWeight: '600' }],
+        'headline-md': ['28px', { lineHeight: '36px', fontWeight: '600' }],
+        'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+        'label-caps': ['12px', { lineHeight: '16px', letterSpacing: '0.1em', fontWeight: '600' }],
       },
       boxShadow: {
         'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
@@ -51,10 +129,6 @@ export default {
         'nav': '0 4px 30px rgba(0, 0, 0, 0.1)',
         'luxury': '0 20px 60px rgba(74, 63, 63, 0.15), 0 0 0 1px rgba(184, 150, 74, 0.1)',
         'premium': '0 25px 80px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.5) inset',
-      },
-      fontFamily: {
-        'serif': ['Playfair Display', 'Georgia', 'serif'],
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
       },
       dropShadow: {
         'soft': '0 4px 20px rgba(0, 0, 0, 0.15)',

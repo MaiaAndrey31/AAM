@@ -1,36 +1,27 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { MessageSquare, Image, Palette, Truck, Check } from 'lucide-react';
-import SparkleButton from './SparkleButton.jsx';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 
 const steps = [
   {
     number: '01',
-    icon: MessageSquare,
     title: 'Entre em Contato',
-    description: 'Envie uma mensagem pelo WhatsApp ou formulário contando qual peça você deseja e para qual ocasião.',
-    color: 'bg-primary',
+    description: 'Mande uma mensagem pelo WhatsApp contando o que você deseja.',
   },
   {
     number: '02',
-    icon: Image,
     title: 'Envie Referências',
-    description: 'Compartilhe fotos de inspiração, cores preferidas, tema do evento e todas as características desejadas.',
-    color: 'bg-primary',
+    description: 'Compartilhe fotos de inspiração, cores e temas do evento.',
   },
   {
     number: '03',
-    icon: Palette,
     title: 'Produção Artesanal',
-    description: 'Começo a modelar sua peça à mão, de acordo com as características que você me enviou.',
-    color: 'bg-gold/20',
+    description: 'Começo a modelar sua peça com todo carinho e precisão técnica.',
   },
   {
     number: '04',
-    icon: Truck,
-    title: 'Entrega',
-    description: 'Após aprovação final, sua peça é embalada com cuidado e enviada para qualquer lugar do Brasil.',
-    color: 'bg-primary',
+    title: 'Entrega Especial',
+    description: 'Sua peça é embalada com cuidado e enviada para qualquer lugar do Brasil.',
   },
 ];
 
@@ -39,116 +30,59 @@ export default function ComoFunciona() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="como-funciona" className="py-24 bg-gradient-to-b from-cream via-white to-secondary/30" ref={ref}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Luxo */}
+    <section className="py-section-gap px-margin-edge bg-surface" id="processo" ref={ref}>
+      <div className="max-w-container-max mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="badge-luxury mb-4 inline-block">Processo Simples</div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] text-gradient-luxury mt-4 mb-4 lg:mb-6">
-            Como Funciona
-          </h2>
-          <div className="line-luxury max-w-md mx-auto mb-6" />
-          <p className="text-text-light text-sm lg:text-base max-w-2xl mx-auto">
-            Fazer sua encomenda é fácil! Siga estes passos simples e receba uma peça única
-            feita especialmente para você.
-          </p>
+          <span className="text-label-caps font-label-caps uppercase text-secondary tracking-widest">Processo Simples</span>
+          <h2 className="font-headline-lg text-headline-lg text-on-surface">Como Funciona sua Encomenda</h2>
         </motion.div>
 
-        {/* Steps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="relative"
+              className="text-center space-y-4"
             >
-              {/* Connector Line (not on last item) */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-12 left-[60%] w-[80%] h-0.5 bg-primary/50" />
-              )}
-
-              <div className="card-luxury p-6 h-full">
-                {/* Number Badge */}
-                <div className="flex items-center justify-between mb-6">
-                  <span className="w-12 h-12 rounded-xl flex items-center justify-center font-serif text-xl text-white shadow-soft bg-gradient-to-br from-gold to-gold-dark">
-                    {step.number}
-                  </span>
-                  <step.icon className="w-6 h-6 text-gold" />
-                </div>
-
-                <h3 className="font-serif text-xl text-text mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-text-light leading-relaxed">
-                  {step.description}
-                </p>
+              <div className="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center mx-auto text-primary font-bold text-xl relative">
+                {step.number}
+                {index < steps.length - 1 && (
+                  <div className="absolute -right-4 top-1/2 -translate-y-1/2 hidden md:block text-outline-variant">
+                    <ArrowRight className="w-6 h-6" />
+                  </div>
+                )}
               </div>
+              <h4 className="font-bold text-on-surface">{step.title}</h4>
+              <p className="text-sm text-on-surface-variant">{step.description}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Features */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 sm:mt-16 card-luxury rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12"
+          className="mt-20 flex flex-wrap justify-center gap-12 bg-surface-container-high/50 p-8 rounded-3xl"
         >
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <div className="flex items-start gap-3 sm:gap-4">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-gold/30 to-gold/10 rounded-full flex items-center justify-center flex-shrink-0 shadow-soft">
-                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
-              </div>
-              <div className="min-w-0">
-                <h4 className="font-medium text-text text-sm sm:text-base mb-1">Orçamento Gratuito</h4>
-                <p className="text-xs sm:text-sm text-text-light leading-relaxed">Receba uma proposta personalizada sem compromisso</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 sm:gap-4">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-gold/30 to-gold/10 rounded-full flex items-center justify-center flex-shrink-0 shadow-soft">
-                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
-              </div>
-              <div className="min-w-0">
-                <h4 className="font-medium text-text text-sm sm:text-base mb-1">Pagamento Facilitado</h4>
-                <p className="text-xs sm:text-sm text-text-light leading-relaxed">Parcelamento e opções de pagamento disponíveis</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 sm:gap-4 sm:col-span-2 lg:col-span-1">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-gold/30 to-gold/10 rounded-full flex items-center justify-center flex-shrink-0 shadow-soft">
-                <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
-              </div>
-              <div className="min-w-0">
-                <h4 className="font-medium text-text text-sm sm:text-base mb-1">Envios para todo o Brasil</h4>
-                <p className="text-xs sm:text-sm text-text-light leading-relaxed">Todo nosso carinho e dedicação para todo o País</p>
-              </div>
-            </div>
+          <div className="flex items-center gap-3">
+            <CheckCircle className="text-secondary" fill="currentColor" />
+            <span className="font-label-caps text-label-caps">Orçamento Gratuito</span>
           </div>
-        </motion.div>
-
-        {/* CTA com Sparkle */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-12"
-        >
-          <SparkleButton
-            variant="primary"
-            size="lg"
-            onClick={() => {
-              const element = document.querySelector('#encomendar');
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            Criar minha lembrança
-          </SparkleButton>
+          <div className="flex items-center gap-3">
+            <CheckCircle className="text-secondary" fill="currentColor" />
+            <span className="font-label-caps text-label-caps">Pagamento Facilitado</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <CheckCircle className="text-secondary" fill="currentColor" />
+            <span className="font-label-caps text-label-caps">Envio para Todo o Brasil</span>
+          </div>
         </motion.div>
       </div>
     </section>

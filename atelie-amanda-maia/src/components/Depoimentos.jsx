@@ -1,38 +1,14 @@
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Star } from 'lucide-react';
 
 const testimonials = [
   {
     id: 1,
     name: 'Mariana e Carlos',
-    role: 'Casamento',
-    image: new URL('../assets/profileDepo001.jpg', import.meta.url).href,
+    role: 'Noivos de Setembro',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBbubD0RL4lkCEEnHTidMHxoELKB_2A8BRGQEIL56mrruPcI3fLaLIUp-PlJ_SoPemHmERCQZl1alxfuyA27gsVptyr6ehUWwol9GcPb3pn6ENcv4IB0DDsbyQ_yPH9PVSOG2NoNn4u-szMeSFLBH9H7V6BZqM0IwelJqEguFygAb3KFK_KKZgmcBe59mPEX3USdg92wrcE8ZAriPjA8cREGrH7xX9wFtPjPD2c898AfUXZZZCqhZyTQGEXCHyzdlGy8DyU1K3Gt4uX',
     text: 'O topo de bolo ficou perfeito! Amanda capturou exatamente o que queríamos. Todos os convidados elogiaram e foi a peça mais fotografada do casamento. Superou todas as expectativas!',
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: 'Fernanda Silva',
-    role: 'Aniversário Infantil',
-    image: new URL('../assets/profileDepo002.png', import.meta.url).href,
-    text: 'Encomendei os personagens da Peppa para o aniversário de 3 anos da minha filha. A qualidade é impressionante, parecem de verdade! A Amanda é muito talentosa e atenciosa.',
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: 'Juliana Mendes',
-    role: 'Chá de Bebê',
-    image: new URL('../assets/profileDepo003.png', import.meta.url).href,
-    text: 'As lembrancinhas do chá de bebê foram um sucesso! Cada detalhe foi pensado com carinho. Entrega no prazo, embalagem perfeita. Recomendo de olhos fechados!',
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: 'Roberta e André',
-    role: 'Bodas de Ouro',
-    image: new URL('../assets/profileDepo004.png', import.meta.url).href,
-    text: 'Encomendei uma réplica dos meus pais para as bodas de ouro. Foi um presente inesquecível! Eles choraram de emoção. A Amanda tem um dom especial nas mãos.',
     rating: 5,
   },
 ];
@@ -51,27 +27,22 @@ export default function Depoimentos() {
   };
 
   return (
-    <section id="depoimentos" className="py-24 bg-gradient-to-br from-primary/30 via-cream to-secondary/40" ref={ref}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Luxo */}
+    <section className="py-section-gap px-margin-edge bg-surface-container-low overflow-hidden" id="depoimentos" ref={ref}>
+      <div className="max-w-container-max mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-20"
         >
-          <div className="badge-luxury mb-4 inline-block">Clientes Felizes</div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] text-gradient-luxury mt-4 mb-4 lg:mb-6">
-            Depoimentos
-          </h2>
-          <div className="line-luxury max-w-md mx-auto mb-6" />
-          <p className="text-text-light text-sm lg:text-base max-w-2xl mx-auto">
-            Veja o que nossos clientes dizem sobre suas experiências e peças personalizadas.
-          </p>
+          <span className="text-label-caps font-label-caps uppercase text-primary tracking-widest">Clientes Felizes</span>
+          <h2 className="font-headline-lg text-headline-lg text-on-surface">Depoimentos</h2>
         </motion.div>
 
-        {/* Testimonial Carousel */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative z-10 max-w-4xl mx-auto">
+          {/* Large Quote Mark Decor */}
+          <div className="absolute -top-8 sm:-top-16 -left-4 sm:-left-16 text-[100px] sm:text-[180px] font-testimonial-quote text-dusty-rose-light opacity-20 -z-10 leading-none">"</div>
+
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -79,106 +50,49 @@ export default function Depoimentos() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.4 }}
-              className="card-luxury rounded-3xl p-8 md:p-12"
+              className="bg-white p-6 sm:p-12 md:p-20 rounded-[24px] sm:rounded-[40px] shadow-xl border border-white relative"
             >
-              <Quote className="w-12 h-12 text-gold/40 mb-6" />
+              <div className="flex gap-1 mb-4 sm:mb-8 text-secondary">
+                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 sm:w-6 sm:h-6 fill-current" />
+                ))}
+              </div>
 
-              <p className="text-base sm:text-lg md:text-xl text-text leading-relaxed mb-6 sm:mb-8">
+              <blockquote className="font-testimonial-quote text-base sm:text-testimonial-quote text-on-surface mb-6 sm:mb-10 leading-relaxed italic">
                 "{testimonials[currentIndex].text}"
-              </p>
+              </blockquote>
 
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex items-center gap-3 sm:gap-4">
-                  {/* Avatar */}
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden bg-secondary">
-                    {testimonials[currentIndex].image ? (
-                      <img
-                        src={testimonials[currentIndex].image}
-                        alt={testimonials[currentIndex].name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <span className="font-serif text-lg sm:text-xl text-text">
-                        {testimonials[currentIndex].name.charAt(0)}
-                      </span>
-                    )}
-                  </div>
-                  <div className="min-w-0">
-                    <h4 className="font-medium text-text text-sm sm:text-base truncate">
-                      {testimonials[currentIndex].name}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-text-light">
-                      {testimonials[currentIndex].role}
-                    </p>
-                  </div>
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-primary-fixed overflow-hidden">
+                  <img
+                    alt={testimonials[currentIndex].name}
+                    className="w-full h-full object-cover"
+                    src={testimonials[currentIndex].image}
+                  />
                 </div>
-
-                {/* Rating */}
-                <div className="flex gap-1 flex-shrink-0">
-                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-gold fill-gold" />
-                  ))}
+                <div>
+                  <div className="font-bold text-on-surface">{testimonials[currentIndex].name}</div>
+                  <div className="text-sm text-on-surface-variant font-label-caps">{testimonials[currentIndex].role}</div>
                 </div>
               </div>
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation Luxo */}
-          <div className="flex items-center justify-center gap-4 sm:gap-6 mt-8 sm:mt-10">
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+          <div className="flex justify-center gap-4 mt-12">
+            <button
               onClick={prevTestimonial}
-              className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-white to-champagne rounded-full flex items-center justify-center shadow-soft hover:shadow-gold-lux transition-all duration-300 text-gold-dark flex-shrink-0 border border-gold/20"
+              className="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary-fixed transition-all"
             >
-              <ChevronLeft className="w-5 h-5" />
-            </motion.button>
-
-            {/* Dots Luxo */}
-            <div className="flex gap-2 sm:gap-3 flex-wrap justify-center max-w-[120px] sm:max-w-none px-4">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-gradient-to-r from-gold to-gold-dark shadow-gold scale-125' : 'bg-champagne-dark hover:bg-gold/40'
-                    }`}
-                />
-              ))}
-            </div>
-
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              <ArrowLeft className="w-6 h-6" />
+            </button>
+            <button
               onClick={nextTestimonial}
-              className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-white to-champagne rounded-full flex items-center justify-center shadow-soft hover:shadow-gold-lux transition-all duration-300 text-gold-dark flex-shrink-0 border border-gold/20"
+              className="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary-fixed transition-all"
             >
-              <ChevronRight className="w-5 h-5" />
-            </motion.button>
+              <ArrowRight className="w-6 h-6" />
+            </button>
           </div>
         </div>
-
-        {/* Trust Badges Luxo */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-16"
-        >
-          {[/* eslint-disable @typescript-eslint/no-unused-vars */
-            { value: '500+', label: 'Clientes Satisfeitos' },
-            { value: '100%', label: 'Avaliações Positivas' },
-            { value: '4.9', label: 'Nota Média' },
-            { value: '0', label: 'Reclamações' },
-          ].map((stat, index) => (
-            <div key={index} className="card-luxury text-center px-2 py-5">
-              <div className="font-serif text-2xl sm:text-3xl md:text-4xl text-gradient-luxury font-bold mb-1">
-                {stat.value}
-              </div>
-              <div className="line-luxury w-12 mx-auto mb-2" />
-              <div className="text-xs sm:text-sm text-text-light font-medium tracking-wider uppercase">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

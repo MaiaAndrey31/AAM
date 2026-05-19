@@ -1,18 +1,13 @@
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Send, Calendar, User, Phone, FileText, Gift, CheckCircle } from 'lucide-react';
-import SparkleButton from './SparkleButton.jsx';
-
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mzdogdrj';
+import { Send, CheckCircle, BadgeCheck, Clock, Gift } from 'lucide-react';
 
 const productTypes = [
   { value: '', label: 'Selecione o tipo de produto' },
-  { value: 'topo-bolo', label: 'Topo de Bolo' },
-  { value: 'noivinhos', label: 'Noivinhos' },
+  { value: 'topo-bolo-casamento', label: 'Topo de Bolo Casamento' },
+  { value: 'topo-bolo-infantil', label: 'Topo de Bolo Infantil' },
   { value: 'lembrancinhas', label: 'Lembrancinhas' },
-  { value: 'personagens', label: 'Personagens' },
-  { value: 'bebe', label: 'Decoração Bebê' },
-  { value: 'outro', label: 'Outro (especificar)' },
+  { value: 'boneco-personalizado', label: 'Boneco Personalizado' },
 ];
 
 export default function Encomendar() {
@@ -23,7 +18,6 @@ export default function Encomendar() {
     data: '',
     observacoes: '',
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -34,43 +28,23 @@ export default function Encomendar() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formPayload = {
-      nome: formData.nome,
-      whatsapp: formData.whatsapp,
-      tipo: productTypes.find(p => p.value === formData.tipo)?.label || formData.tipo,
-      data: formData.data || 'Não informada',
-      observacoes: formData.observacoes || 'Nenhuma',
-      _subject: 'Nova Encomenda - Ateliê Amanda Maia',
-      _replyto: formData.whatsapp,
-    };
+    const message = `Olá! Gostaria de fazer uma encomenda.\n\nNome: ${formData.nome}\nWhatsApp: ${formData.whatsapp}\nTipo de Produto: ${productTypes.find(p => p.value === formData.tipo)?.label || formData.tipo}\nData do Evento: ${formData.data || 'Não informada'}\nObservações: ${formData.observacoes || 'Nenhuma'}`;
 
-    try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formPayload),
-      });
+    const whatsappNumber = '5511975578672';
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({
-          nome: '',
-          whatsapp: '',
-          tipo: '',
-          data: '',
-          observacoes: '',
-        });
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }
+    window.open(whatsappUrl, '_blank');
+
+    setSubmitStatus('success');
+    setFormData({
+      nome: '',
+      whatsapp: '',
+      tipo: '',
+      data: '',
+      observacoes: '',
+    });
+    setIsSubmitting(false);
+    setTimeout(() => setSubmitStatus(null), 5000);
   };
 
   const handleChange = (e) => {
@@ -78,160 +52,124 @@ export default function Encomendar() {
   };
 
   return (
-    <section id="encomendar" className="py-24 bg-gradient-to-b from-secondary via-cream to-white" ref={ref}>
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Left Side - Info */}
+    <section className="py-section-gap px-margin-edge bg-surface" id="orcamento" ref={ref}>
+      <div className="max-w-container-max mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <div className="badge-luxury mb-4 inline-block">Vamos Criar Juntos</div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] text-gradient-luxury mt-4 mb-4 lg:mb-6">
-              Faça sua Encomenda
-            </h2>
-            <div className="line-luxury w-24 mb-6" />
-            <p className="text-text-light text-base lg:text-lg leading-relaxed mb-6 lg:mb-8">
-              Preencha o formulário ao lado e envie sua solicitação diretamente pelo WhatsApp.
-              Respondemos em poucas horas com seu orçamento personalizado!
-            </p>
+            <span className="text-label-caps font-label-caps uppercase text-secondary tracking-widest">Vamos Criar Juntos</span>
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mt-4 mb-8 leading-tight">Faça sua Encomenda</h2>
+            <p className="text-body-lg text-on-surface-variant mb-8 sm:mb-12">Preencha o formulário ao lado e envie sua solicitação diretamente pelo WhatsApp. Respondemos em poucas horas com seu orçamento personalizado!</p>
 
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-gold/40 to-gold/20 rounded-full flex items-center justify-center shadow-soft">
-                  <CheckCircle className="w-6 h-6 text-gold" />
+            <div className="space-y-8">
+              <div className="flex gap-6">
+                <div className="w-12 h-12 rounded-full bg-surface-soft flex items-center justify-center flex-shrink-0">
+                  <BadgeCheck className="text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-text">Orçamento Gratuito</h4>
-                  <p className="text-sm text-text-light">Sem compromisso</p>
+                  <h4 className="font-bold text-on-surface">Orçamento Gratuito</h4>
+                  <p className="text-sm text-on-surface-variant">Sem compromisso e com consultoria criativa.</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-gold/40 to-gold/20 rounded-full flex items-center justify-center shadow-soft">
-                  <Calendar className="w-6 h-6 text-gold" />
+              <div className="flex gap-6">
+                <div className="w-12 h-12 rounded-full bg-surface-soft flex items-center justify-center flex-shrink-0">
+                  <Clock className="text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-text">Prazo de Produção</h4>
-                  <p className="text-sm text-text-light">De 15 a 30 dias úteis</p>
+                  <h4 className="font-bold text-on-surface">Prazo de Produção</h4>
+                  <p className="text-sm text-on-surface-variant">De 15 a 30 dias úteis (reserve sua data).</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-gold/40 to-gold/20 rounded-full flex items-center justify-center shadow-soft">
-                  <Gift className="w-6 h-6 text-gold" />
+              <div className="flex gap-6">
+                <div className="w-12 h-12 rounded-full bg-surface-soft flex items-center justify-center flex-shrink-0">
+                  <Gift className="text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium text-text">Embalagem Especial</h4>
-                  <p className="text-sm text-text-light">Presente incluído</p>
+                  <h4 className="font-bold text-on-surface">Embalagem Especial</h4>
+                  <p className="text-sm text-on-surface-variant">Presente pronto com toda a delicadeza que sua peça merece.</p>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Side - Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="bg-surface-soft p-6 sm:p-8 md:p-12 rounded-[24px] sm:rounded-[32px] shadow-2xl border border-outline-variant/30 relative mt-4"
           >
-            <form onSubmit={handleSubmit} action={FORMSPREE_ENDPOINT} method="POST" className="card-luxury rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 max-w-md lg:max-w-none mx-auto lg:mx-0">
-              <h3 className="font-serif text-xl sm:text-2xl text-gradient-luxury mb-4 sm:mb-6 text-center">
-                Solicitar Orçamento
-              </h3>
-
-              {/* Name */}
-              <div className="mb-4 sm:mb-5">
-                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-text mb-2">
-                  <User className="w-4 h-4 text-gold flex-shrink-0" />
-                  <span className="truncate">Nome Completo</span>
-                </label>
-                <input
-                  type="text"
-                  name="nome"
-                  value={formData.nome}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base shadow-inner-light"
-                  placeholder="Seu nome"
-                />
+            <div className="absolute -top-4 sm:-top-6 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-5 sm:px-8 py-1.5 sm:py-2 rounded-full font-label-caps text-[10px] sm:text-label-caps shadow-lg whitespace-nowrap">Solicitar Orçamento</div>
+            <form onSubmit={handleSubmit} className="space-y-6 pt-4">
+              <div className="grid grid-cols-1 gap-6">
+                <div>
+                  <label className="block text-label-caps font-label-caps text-on-surface-variant mb-2">Nome Completo</label>
+                  <input
+                    type="text"
+                    name="nome"
+                    value={formData.nome}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-white border border-outline-variant/50 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                    placeholder="Seu nome"
+                  />
+                </div>
+                <div>
+                  <label className="block text-label-caps font-label-caps text-on-surface-variant mb-2">WhatsApp</label>
+                  <input
+                    type="tel"
+                    name="whatsapp"
+                    value={formData.whatsapp}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-white border border-outline-variant/50 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                    placeholder="(00) 00000-0000"
+                  />
+                </div>
+                <div>
+                  <label className="block text-label-caps font-label-caps text-on-surface-variant mb-2">Tipo de Produto</label>
+                  <select
+                    name="tipo"
+                    value={formData.tipo}
+                    onChange={handleChange}
+                    required
+                    className="w-full bg-white border border-outline-variant/50 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                  >
+                    {productTypes.map((type) => (
+                      <option key={type.value} value={type.value}>
+                        {type.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-label-caps font-label-caps text-on-surface-variant mb-2">Data do Evento</label>
+                  <input
+                    type="date"
+                    name="data"
+                    value={formData.data}
+                    onChange={handleChange}
+                    className="w-full bg-white border border-outline-variant/50 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                  />
+                </div>
+                <div>
+                  <label className="block text-label-caps font-label-caps text-on-surface-variant mb-2">Observações / Detalhes</label>
+                  <textarea
+                    name="observacoes"
+                    value={formData.observacoes}
+                    onChange={handleChange}
+                    rows="4"
+                    className="w-full bg-white border border-outline-variant/50 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none"
+                    placeholder="Conte-nos mais sobre o tema, cores e personagens..."
+                  />
+                </div>
               </div>
-
-              {/* WhatsApp */}
-              <div className="mb-4 sm:mb-5">
-                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-text mb-2">
-                  <Phone className="w-4 h-4 text-gold flex-shrink-0" />
-                  WhatsApp
-                </label>
-                <input
-                  type="tel"
-                  name="whatsapp"
-                  value={formData.whatsapp}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base shadow-inner-light"
-                  placeholder="(11) 97557-8672"
-                />
-              </div>
-
-              {/* Product Type */}
-              <div className="mb-4 sm:mb-5">
-                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-text mb-2">
-                  <Gift className="w-4 h-4 text-gold flex-shrink-0" />
-                  Tipo de Produto
-                </label>
-                <select
-                  name="tipo"
-                  value={formData.tipo}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base shadow-inner-light"
-                >
-                  {productTypes.map((type) => (
-                    <option key={type.value} value={type.value}>
-                      {type.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Event Date */}
-              <div className="mb-4 sm:mb-5">
-                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-text mb-2">
-                  <Calendar className="w-4 h-4 text-gold flex-shrink-0" />
-                  Data do Evento
-                </label>
-                <input
-                  type="date"
-                  name="data"
-                  value={formData.data}
-                  onChange={handleChange}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream text-sm sm:text-base shadow-inner-light"
-                />
-              </div>
-
-              {/* Observations */}
-              <div className="mb-5 sm:mb-6">
-                <label className="flex items-center gap-2 text-xs sm:text-sm font-medium text-text mb-2">
-                  <FileText className="w-4 h-4 text-gold flex-shrink-0" />
-                  Observações / Detalhes
-                </label>
-                <textarea
-                  name="observacoes"
-                  value={formData.observacoes}
-                  onChange={handleChange}
-                  rows="3"
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl border border-primary focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all bg-cream resize-none text-sm sm:text-base shadow-inner-light"
-                  placeholder="Descreva o tema, cores, personagens..."
-                />
-              </div>
-
-              {/* Submit Button com Sparkle */}
-              <SparkleButton
+              <button
                 type="submit"
-                variant="primary"
-                size="lg"
                 disabled={isSubmitting}
-                className="w-full rounded-xl"
+                className="w-full bg-primary text-on-primary py-5 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-primary-container transition-all flex items-center justify-center gap-3 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
@@ -246,30 +184,15 @@ export default function Encomendar() {
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    <span className="truncate">Fazer minha encomenda</span>
+                    Fazer minha encomenda
                   </>
                 )}
-              </SparkleButton>
-
-              {submitStatus === 'success' && (
-                <p className="text-center text-xs text-green-600 mt-3 sm:mt-4">
-                  Obrigada! Sua encomenda foi enviada. Entraremos em contato em breve.
-                </p>
-              )}
-              {submitStatus === 'error' && (
-                <p className="text-center text-xs text-red-500 mt-3 sm:mt-4">
-                  Erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.
-                </p>
-              )}
-              {!submitStatus && (
-                <p className="text-center text-xs text-text-light mt-3 sm:mt-4">
-                  Sua encomenda será enviada diretamente para nosso email
-                </p>
-              )}
+              </button>
+              <p className="text-[10px] text-center text-on-surface-variant italic">Sua solicitação será enviada diretamente para nosso WhatsApp.</p>
             </form>
           </motion.div>
         </div>
       </div>
-    </section >
+    </section>
   );
 }

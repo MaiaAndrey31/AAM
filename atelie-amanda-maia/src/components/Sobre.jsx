@@ -1,121 +1,71 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Heart, Hand, Award, Clock } from 'lucide-react';
-import atelieImg from '../assets/atelie.jpg';
-
-const features = [
-  {
-    icon: Heart,
-    title: 'Feito com Amor',
-    description: 'Cada peça é criada com dedicação e carinho, pensando nos seus momentos especiais'
-  },
-  {
-    icon: Hand,
-    title: '100% Artesanal',
-    description: 'Processo manual do início ao fim, garantindo exclusividade'
-  },
-  {
-    icon: Award,
-    title: 'Qualidade Premium',
-    description: 'Materiais selecionados e acabamento impecável para durar para sempre'
-  },
-  {
-    icon: Clock,
-    title: 'Prazo Respeitado',
-    description: 'Compromisso com a entrega no prazo acordado para seu evento'
-  }
-];
+import { Heart, Star } from 'lucide-react';
+import amandaImg from '../assets/Amanda.png';
 
 export default function Sobre() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="sobre" className="py-24 bg-gradient-to-b from-cream via-white to-cream" ref={ref}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Image Side */}
+    <section className="py-section-gap px-margin-edge bg-surface" id="sobre" ref={ref}>
+      <div className="max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-16">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="w-full md:w-5/12 relative"
+        >
+          <div className="aspect-[0.75] sm:aspect-[0.56] max-h-[450px] sm:max-h-[600px] rounded-[24px] sm:rounded-[40px] overflow-hidden shadow-2xl relative z-10">
+            <img
+              alt="Artesã Amanda Maia"
+              className="w-full h-full object-cover"
+              src={amandaImg}
+            />
+          </div>
+          <div className="absolute -top-10 -right-10 w-40 h-40 bg-secondary-fixed rounded-full opacity-30 -z-0"></div>
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="absolute -bottom-3 -left-3 sm:-bottom-5 sm:-left-5 bg-white p-4 sm:p-8 rounded-xl sm:rounded-2xl shadow-lg z-20"
           >
-            <div className="relative">
-              {/* Decorative elements */}
-              <div className="absolute -bottom-12 -left-8 w-60 h-60 bg-gradient-to-br from-primary to-accent/80 rounded-full opacity-80 shadow-soft" />
-              <div className="absolute -top-6 -left-8 w-32 h-32 bg-gradient-to-tr from-gold/70 to-primary/30 rounded-full shadow-soft" />
+            <div className="text-xl sm:text-headline-md font-bold text-secondary">12+</div>
+            <div className="text-label-caps font-label-caps">Anos criando sonhos em biscuit</div>
+          </motion.div>
+        </motion.div>
 
-              {/* Main Image Placeholder */}
-              <div className="relative bg-gradient-to-br from-secondary to-cream rounded-3xl overflow-hidden aspect-[4/5] shadow-card hover:shadow-strong transition-shadow duration-500">
-                <img
-                  src={atelieImg}
-                  alt="Amanda Maia - Ateliê"
-                  className="w-full h-full object-cover"
-                />
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full md:w-7/12 space-y-stack-md"
+        >
+          <span className="text-label-caps font-label-caps uppercase text-secondary tracking-widest">Conheça a Artesã</span>
+          <h2 className="font-headline-lg text-headline-lg text-on-surface leading-tight">Quem está por trás de cada peça especial</h2>
+          <p className="text-body-lg text-on-surface-variant italic">"Modelando com amor, uma lembrança da sua vida"</p>
+          <div className="space-y-stack-md text-body-md text-on-surface-variant leading-relaxed">
+            <p>Olá! Sou Amanda Maia, apaixonada por transformar sentimentos em peças únicas de biscuit. Há mais de 12 anos, venho ajudando pessoas a eternizar seus momentos mais especiais através da arte manual.</p>
+            <p>Cada topo de bolo, cada noivinho, cada lembrancinha carrega uma história. Trabalho exclusivamente com encomendas personalizadas, porque acredito que seu momento único merece uma peça igualmente exclusiva. Tudo à mão, com paciência e amor.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-stack-md pt-8">
+            <div className="flex gap-4 items-start">
+              <Heart className="text-primary" fill="currentColor" />
+              <div>
+                <h4 className="font-bold text-on-surface">Feito com Amor</h4>
+                <p className="text-sm text-on-surface-variant">Dedicamos carinho pensando nos seus momentos especiais.</p>
               </div>
             </div>
-
-            {/* Floating Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="absolute -bottom-4 right-2 sm:-bottom-6 sm:-right-6 bg-gradient-to-br from-white to-cream rounded-2xl p-4 sm:p-6 shadow-card-hover hover:shadow-strong transition-shadow duration-300 max-w-[160px] sm:max-w-[200px]"
-            >
-              <p className="font-serif text-2xl sm:text-3xl text-gold font-bold mb-1 drop-shadow-soft bg-gradient-to-r from-gold to-accent bg-clip-text text-transparent">12+</p>
-              <p className="text-xs sm:text-sm text-text-light">Anos criando sonhos em biscuit</p>
-            </motion.div>
-          </motion.div>
-
-          {/* Content Side */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="badge-luxury mb-4 inline-block">Conheça a Artesã</div>
-
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] text-gradient-luxury mt-4 mb-4 lg:mb-6">
-              Quem está por trás de cada peça especial
-            </h2>
-            <div className="line-luxury w-24 mb-6" />
-
-            <p className="text-text-light text-base lg:text-lg leading-relaxed mb-4 lg:mb-6">
-              Olá! Sou Amanda Maia, apaixonada por transformar sentimentos em peças únicas de biscuit.
-              Há mais de 12 anos, venho ajudando pessoas a eternizar seus momentos mais especiais através
-              da arte manual.
-            </p>
-
-            <p className="text-text-light text-sm lg:text-base leading-relaxed mb-6 lg:mb-8">
-              Cada topo de bolo, cada noivinho, cada lembrancinha carrega uma história.
-              Trabalho exclusivamente com encomendas personalizadas, porque acredito que
-              seu momento único merece uma peça igualmente exclusiva. Tudo à mão, com paciência e amor.
-            </p>
-
-            <p className="text-text font-medium italic mb-10 text-lg bg-gradient-to-r from-text via-gold-dark to-text bg-clip-text text-transparent">
-              "Modelando com amor, uma lembrança da sua vida"
-            </p>
-
-            {/* Features Grid */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="card-luxury p-3 sm:p-4"
-                >
-                  <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-gold mb-2 sm:mb-3 drop-shadow-soft" />
-                  <h3 className="font-medium text-text text-xs sm:text-sm mb-1">{feature.title}</h3>
-                  <p className="text-[10px] sm:text-xs text-text-light leading-snug">{feature.description}</p>
-                </motion.div>
-              ))}
+            <div className="flex gap-4 items-start">
+              <Star className="text-primary" fill="currentColor" />
+              <div>
+                <h4 className="font-bold text-on-surface">100% Artesanal</h4>
+                <p className="text-sm text-on-surface-variant">Processo manual do início ao fim, garantindo exclusividade.</p>
+              </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

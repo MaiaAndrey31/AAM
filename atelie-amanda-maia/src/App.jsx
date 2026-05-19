@@ -6,15 +6,13 @@ import {
   ComoFunciona,
   Depoimentos,
   Encomendar,
-  Contato,
   Footer,
   WhatsAppButton,
-  MouseTrail,
 } from './components';
 
 function App() {
   return (
-    <div className="min-h-screen bg-secondary">
+    <div className="min-h-screen bg-surface">
       <Navbar />
       <main>
         <Hero />
@@ -23,11 +21,9 @@ function App() {
         <ComoFunciona />
         <Depoimentos />
         <Encomendar />
-        <Contato />
       </main>
       <Footer />
       <WhatsAppButton />
-      <MouseTrail />
     </div>
   );
 }
