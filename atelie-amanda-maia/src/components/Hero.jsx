@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Heart, ArrowRight } from 'lucide-react';
 import AnimatedCounter from './AnimatedCounter.jsx';
+import SparkleButton from './SparkleButton.jsx';
 import bannerImg from '../assets/Banner.png';
 
 export default function Hero() {
@@ -45,19 +46,22 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="flex flex-wrap gap-stack-md pt-stack-sm"
           >
-            <button
+            <SparkleButton
               onClick={() => scrollToSection('#orcamento')}
-              className="bg-primary text-on-primary px-5 sm:px-8 py-3 sm:py-4 rounded-full font-label-caps text-[10px] sm:text-label-caps hover:bg-primary-container transition-all shadow-lg flex items-center gap-2"
+              variant="primary"
+              size="md"
+              className="flex items-center gap-2"
             >
               Quero minha peça personalizada
               <Heart className="text-[18px]" />
-            </button>
-            <button
+            </SparkleButton>
+            <SparkleButton
               onClick={() => scrollToSection('#portfolio')}
-              className="border border-secondary text-secondary px-5 sm:px-8 py-3 sm:py-4 rounded-full font-label-caps text-[10px] sm:text-label-caps hover:bg-secondary-container transition-all"
+              variant="secondary"
+              size="md"
             >
               Ver histórias criadas
-            </button>
+            </SparkleButton>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}

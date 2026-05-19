@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Send, CheckCircle, BadgeCheck, Clock, Gift } from 'lucide-react';
+import SparkleButton from './SparkleButton.jsx';
 
 const productTypes = [
   { value: '', label: 'Selecione o tipo de produto' },
@@ -166,10 +167,12 @@ export default function Encomendar() {
                   />
                 </div>
               </div>
-              <button
+              <SparkleButton
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary text-on-primary py-5 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-primary-container transition-all flex items-center justify-center gap-3 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                variant="primary"
+                size="lg"
+                className="w-full"
               >
                 {isSubmitting ? (
                   <>
@@ -187,7 +190,7 @@ export default function Encomendar() {
                     Fazer minha encomenda
                   </>
                 )}
-              </button>
+              </SparkleButton>
               <p className="text-[10px] text-center text-on-surface-variant italic">Sua solicitação será enviada diretamente para nosso WhatsApp.</p>
             </form>
           </motion.div>

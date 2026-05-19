@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import SparkleButton from './SparkleButton.jsx';
 
 const navItems = [
   { label: 'Home', href: '#' },
@@ -45,12 +46,14 @@ export default function Navbar() {
               </a>
             ))}
           </nav>
-            <button
-              onClick={() => scrollToSection('#orcamento')}
-              className="hidden md:block bg-primary text-on-primary px-6 py-2 rounded-full font-label-caps text-label-caps hover:scale-95 transition-all duration-150 ease-in-out shadow-md"
-            >
-              Orçamento
-            </button>
+          <SparkleButton
+            onClick={() => scrollToSection('#orcamento')}
+            variant="primary"
+            size="sm"
+            className="hidden md:block"
+          >
+            Orçamento
+          </SparkleButton>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 text-on-surface"
@@ -93,12 +96,14 @@ export default function Navbar() {
                     {item.label}
                   </a>
                 ))}
-                <button
+                <SparkleButton
                   onClick={() => scrollToSection('#orcamento')}
-                  className="mt-2 bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps hover:scale-95 transition-all duration-150 ease-in-out shadow-md"
+                  variant="primary"
+                  size="md"
+                  className="mt-2"
                 >
                   Orçamento
-                </button>
+                </SparkleButton>
               </div>
             </motion.div>
           </motion.div>
